@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2021.2.3),
-    on Sun Sep 12 16:37:36 2021
+    on Sun Sep 12 16:55:37 2021
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -37,7 +37,7 @@ os.chdir(_thisDir)
 # Store info about the experiment session
 psychopyVersion = '2021.2.3'
 expName = 'spatial geometry'  # from the Builder filename that created this script
-expInfo = {'participant': '', 'session': '001', 'group': '0'}
+expInfo = {'participant': '', 'session': '001'}
 expInfo['date'] = data.getDateStr()  # add a simple timestamp
 expInfo['expName'] = expName
 expInfo['psychopyVersion'] = psychopyVersion
@@ -611,7 +611,7 @@ for thisLoop_video in loop_videos:
         # set up handler to look after randomisation of conditions etc
         loop_questions = data.TrialHandler(nReps=1.0, method='sequential', 
             extraInfo=expInfo, originPath=-1,
-            trialList=data.importConditions('media/Town01_ClearNoon/question_conditions.xlsx'),
+            trialList=data.importConditions("media/"+str(town_weather_name)+"/question_conditions.xlsx"),
             seed=None, name='loop_questions')
         thisExp.addLoop(loop_questions)  # add the loop to the experiment
         thisLoop_question = loop_questions.trialList[0]  # so we can initialise stimuli with some values
