@@ -529,8 +529,8 @@
   <Flow>
     <LoopInitiator loopType="TrialHandler" name="loop_guidelines">
       <Param name="Selected rows" updates="None" val="" valType="str"/>
-      <Param name="conditions" updates="None" val="[{'screenshots_image': 'screenshots_01.jpeg'}, {'screenshots_image': 'screenshots_02.jpeg'}, {'screenshots_image': 'screenshots_03.jpeg'}, {'screenshots_image': 'screenshots_04.jpeg'}, {'screenshots_image': 'screenshots_05.jpeg'}, {'screenshots_image': 'screenshots_06.jpeg'}, {'screenshots_image': 'screenshots_07.jpeg'}, {'screenshots_image': 'screenshots_08.jpeg'}]" valType="str"/>
-      <Param name="conditionsFile" updates="None" val="screenshots/screenshots_conditions.xlsx" valType="file"/>
+      <Param name="conditions" updates="None" val="[{'screenshots_image': 'screenshots/screenshots_01.png'}, {'screenshots_image': 'screenshots/screenshots_02.png'}, {'screenshots_image': 'screenshots/screenshots_03.png'}, {'screenshots_image': 'screenshots/screenshots_04.png'}, {'screenshots_image': 'screenshots/screenshots_05.png'}, {'screenshots_image': 'screenshots/screenshots_06.png'}, {'screenshots_image': 'screenshots/screenshots_07.png'}, {'screenshots_image': 'screenshots/screenshots_08.png'}]" valType="str"/>
+      <Param name="conditionsFile" updates="None" val="guidelines/screenshots_conditions.xlsx" valType="file"/>
       <Param name="endPoints" updates="None" val="[0, 1]" valType="num"/>
       <Param name="isTrials" updates="None" val="True" valType="bool"/>
       <Param name="loopType" updates="None" val="sequential" valType="str"/>

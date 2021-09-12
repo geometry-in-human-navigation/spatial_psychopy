@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2021.2.3),
-    on Sun Sep 12 16:55:37 2021
+    on Sun Sep 12 19:00:26 2021
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -218,7 +218,7 @@ routineTimer = core.CountdownTimer()  # to track time remaining of each (non-sli
 # set up handler to look after randomisation of conditions etc
 loop_guidelines = data.TrialHandler(nReps=1.0, method='sequential', 
     extraInfo=expInfo, originPath=-1,
-    trialList=data.importConditions('screenshots/screenshots_conditions.xlsx'),
+    trialList=data.importConditions('guidelines/screenshots_conditions.xlsx'),
     seed=None, name='loop_guidelines')
 thisExp.addLoop(loop_guidelines)  # add the loop to the experiment
 thisLoop_guideline = loop_guidelines.trialList[0]  # so we can initialise stimuli with some values
