@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2021.2.3),
-    on Tue Sep 14 20:33:48 2021
+    on Thu Sep 16 13:22:43 2021
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -62,8 +62,8 @@ frameTolerance = 0.001  # how close to onset before 'same' frame
 
 # Setup the Window
 win = visual.Window(
-    size=[1280, 720], fullscr=False, screen=0, 
-    winType='pyglet', allowGUI=True, allowStencil=False,
+    size=[1280, 800], fullscr=True, screen=0, 
+    winType='pyglet', allowGUI=False, allowStencil=False,
     monitor='testMonitor', color=[0,0,0], colorSpace='rgb',
     blendMode='avg', useFBO=True, 
     units='height')
@@ -91,6 +91,7 @@ instruction_img = visual.ImageStim(
     flipHoriz=False, flipVert=False,
     texRes=128.0, interpolate=True, depth=0.0)
 instruction_key = keyboard.Keyboard()
+current_instruction = 1
 
 # Initialize components for Routine "wait_for_start"
 wait_for_startClock = core.Clock()
@@ -103,15 +104,17 @@ wait_for_start_txt = visual.TextStim(win=win, name='wait_for_start_txt',
     depth=0.0);
 wait_for_start_key = keyboard.Keyboard()
 
+# Initialize components for Routine "fix_cross_r_4"
+fix_cross_r_4Clock = core.Clock()
+polygon = visual.ShapeStim(
+    win=win, name='polygon', vertices='cross',
+    size=(0.1, 0.1),
+    ori=0.0, pos=(0, 0),
+    lineWidth=1.0,     colorSpace='rgb',  lineColor='white', fillColor='white',
+    opacity=None, depth=0.0, interpolate=True)
+
 # Initialize components for Routine "show_single_r"
 show_single_rClock = core.Clock()
-show_current_town_weather = visual.TextStim(win=win, name='show_current_town_weather',
-    text='',
-    font='Open Sans',
-    pos=(0, 0.45), height=0.03, wrapWidth=None, ori=0.0, 
-    color='white', colorSpace='rgb', opacity=None, 
-    languageStyle='LTR',
-    depth=-1.0);
 
 # Initialize components for Routine "fix_cross_r_6"
 fix_cross_r_6Clock = core.Clock()
@@ -142,10 +145,10 @@ right_image_question_for_know_or_not = visual.ImageStim(
     texRes=128.0, interpolate=True, depth=-1.0)
 key_question_for_know_or_not = keyboard.Keyboard()
 txt_question_for_know_or_not = visual.TextStim(win=win, name='txt_question_for_know_or_not',
-    text='Press the left, right buttons \nto confirm which one scene below \nyou have seen in the last movie.',
+    text='Which scene have you NOT seen?',
     font='Open Sans',
     pos=(0, 0.4), height=0.04, wrapWidth=None, ori=0.0, 
-    color='red', colorSpace='rgb', opacity=None, 
+    color='black', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=-3.0);
 left_arrow_image = visual.ImageStim(
@@ -164,6 +167,14 @@ right_arrow_image = visual.ImageStim(
     color=[1,1,1], colorSpace='rgb', opacity=None,
     flipHoriz=False, flipVert=False,
     texRes=128.0, interpolate=True, depth=-5.0)
+image_answer_green_square = visual.ImageStim(
+    win=win,
+    name='image_answer_green_square', 
+    image=None, mask=None,
+    ori=0.0, pos=(0, 0), size=(0.5, 0.5),
+    color=[1,1,1], colorSpace='rgb', opacity=None,
+    flipHoriz=False, flipVert=False,
+    texRes=128.0, interpolate=True, depth=-7.0)
 
 # Initialize components for Routine "a_r"
 a_rClock = core.Clock()
@@ -217,9 +228,9 @@ globalClock = core.Clock()  # to track the time since experiment started
 routineTimer = core.CountdownTimer()  # to track time remaining of each (non-slip) routine 
 
 # set up handler to look after randomisation of conditions etc
-loop_instruction_r = data.TrialHandler(nReps=1.0, method='sequential', 
+loop_instruction_r = data.TrialHandler(nReps=100.0, method='sequential', 
     extraInfo=expInfo, originPath=-1,
-    trialList=data.importConditions('instruction/screenshots_conditions.xlsx'),
+    trialList=[None],
     seed=None, name='loop_instruction_r')
 thisExp.addLoop(loop_instruction_r)  # add the loop to the experiment
 thisLoop_instruction_r = loop_instruction_r.trialList[0]  # so we can initialise stimuli with some values
@@ -238,7 +249,7 @@ for thisLoop_instruction_r in loop_instruction_r:
     # ------Prepare to start Routine "instruction_r"-------
     continueRoutine = True
     # update component parameters for each repeat
-    instruction_img.setImage(screenshots_image)
+    instruction_img.setImage('instruction/instruction_' + str(current_instruction) + '.png')
     instruction_key.keys = []
     instruction_key.rt = []
     _instruction_key_allKeys = []
@@ -289,13 +300,27 @@ for thisLoop_instruction_r in loop_instruction_r:
             win.callOnFlip(instruction_key.clock.reset)  # t=0 on next screen flip
             win.callOnFlip(instruction_key.clearEvents, eventType='keyboard')  # clear events on next screen flip
         if instruction_key.status == STARTED and not waitOnFlip:
-            theseKeys = instruction_key.getKeys(keyList=['1', '4', 'left', 'right'], waitRelease=False)
+            theseKeys = instruction_key.getKeys(keyList=['left', 'right'], waitRelease=False)
             _instruction_key_allKeys.extend(theseKeys)
             if len(_instruction_key_allKeys):
                 instruction_key.keys = _instruction_key_allKeys[-1].name  # just the last key pressed
                 instruction_key.rt = _instruction_key_allKeys[-1].rt
                 # a response ends the routine
                 continueRoutine = False
+        if instruction_key.keys == 'left' and current_instruction > 1:
+            current_instruction = current_instruction - 1
+        elif instruction_key.keys == 'right':
+            current_instruction = current_instruction + 1
+            
+        if current_instruction == 9: # pressed 'right' on the last instructions
+            loop_instruction_r.finished = True
+            continueRoutine = False
+            
+        if current_instruction < 9: # pressed 'right' on the last instructions
+            str_instruction_img = 'instruction/instruction_' + str(current_instruction) + '.png'
+            instruction_img.setImage(str_instruction_img)
+        
+        
         
         # check for quit (typically the Esc key)
         if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
@@ -332,7 +357,7 @@ for thisLoop_instruction_r in loop_instruction_r:
     routineTimer.reset()
     thisExp.nextEntry()
     
-# completed 1.0 repeats of 'loop_instruction_r'
+# completed 100.0 repeats of 'loop_instruction_r'
 
 
 # ------Prepare to start Routine "wait_for_start"-------
@@ -431,6 +456,75 @@ thisExp.nextEntry()
 # the Routine "wait_for_start" was not non-slip safe, so reset the non-slip timer
 routineTimer.reset()
 
+# ------Prepare to start Routine "fix_cross_r_4"-------
+continueRoutine = True
+routineTimer.add(4.000000)
+# update component parameters for each repeat
+# keep track of which components have finished
+fix_cross_r_4Components = [polygon]
+for thisComponent in fix_cross_r_4Components:
+    thisComponent.tStart = None
+    thisComponent.tStop = None
+    thisComponent.tStartRefresh = None
+    thisComponent.tStopRefresh = None
+    if hasattr(thisComponent, 'status'):
+        thisComponent.status = NOT_STARTED
+# reset timers
+t = 0
+_timeToFirstFrame = win.getFutureFlipTime(clock="now")
+fix_cross_r_4Clock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
+frameN = -1
+
+# -------Run Routine "fix_cross_r_4"-------
+while continueRoutine and routineTimer.getTime() > 0:
+    # get current time
+    t = fix_cross_r_4Clock.getTime()
+    tThisFlip = win.getFutureFlipTime(clock=fix_cross_r_4Clock)
+    tThisFlipGlobal = win.getFutureFlipTime(clock=None)
+    frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+    # update/draw components on each frame
+    
+    # *polygon* updates
+    if polygon.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+        # keep track of start time/frame for later
+        polygon.frameNStart = frameN  # exact frame index
+        polygon.tStart = t  # local t and not account for scr refresh
+        polygon.tStartRefresh = tThisFlipGlobal  # on global time
+        win.timeOnFlip(polygon, 'tStartRefresh')  # time at next scr refresh
+        polygon.setAutoDraw(True)
+    if polygon.status == STARTED:
+        # is it time to stop? (based on global clock, using actual start)
+        if tThisFlipGlobal > polygon.tStartRefresh + 4.0-frameTolerance:
+            # keep track of stop time/frame for later
+            polygon.tStop = t  # not accounting for scr refresh
+            polygon.frameNStop = frameN  # exact frame index
+            win.timeOnFlip(polygon, 'tStopRefresh')  # time at next scr refresh
+            polygon.setAutoDraw(False)
+    
+    # check for quit (typically the Esc key)
+    if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
+        core.quit()
+    
+    # check if all components have finished
+    if not continueRoutine:  # a component has requested a forced-end of Routine
+        break
+    continueRoutine = False  # will revert to True if at least one component still running
+    for thisComponent in fix_cross_r_4Components:
+        if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+            continueRoutine = True
+            break  # at least one component has not yet finished
+    
+    # refresh the screen
+    if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+        win.flip()
+
+# -------Ending Routine "fix_cross_r_4"-------
+for thisComponent in fix_cross_r_4Components:
+    if hasattr(thisComponent, "setAutoDraw"):
+        thisComponent.setAutoDraw(False)
+thisExp.addData('polygon.started', polygon.tStartRefresh)
+thisExp.addData('polygon.stopped', polygon.tStopRefresh)
+
 # set up handler to look after randomisation of conditions etc
 loop_videos = data.TrialHandler(nReps=1.0, method='sequential', 
     extraInfo=expInfo, originPath=-1,
@@ -480,9 +574,8 @@ for thisLoop_video in loop_videos:
             loop=False,
             depth=0.0,
             )
-        show_current_town_weather.setText("Town_Weather:"+str(town_weather_name)+",Video:"+str(video_name))
         # keep track of which components have finished
-        show_single_rComponents = [show_single_video, show_current_town_weather]
+        show_single_rComponents = [show_single_video]
         for thisComponent in show_single_rComponents:
             thisComponent.tStart = None
             thisComponent.tStop = None
@@ -522,23 +615,6 @@ for thisLoop_video in loop_videos:
                     win.timeOnFlip(show_single_video, 'tStopRefresh')  # time at next scr refresh
                     show_single_video.setAutoDraw(False)
             
-            # *show_current_town_weather* updates
-            if show_current_town_weather.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
-                # keep track of start time/frame for later
-                show_current_town_weather.frameNStart = frameN  # exact frame index
-                show_current_town_weather.tStart = t  # local t and not account for scr refresh
-                show_current_town_weather.tStartRefresh = tThisFlipGlobal  # on global time
-                win.timeOnFlip(show_current_town_weather, 'tStartRefresh')  # time at next scr refresh
-                show_current_town_weather.setAutoDraw(True)
-            if show_current_town_weather.status == STARTED:
-                # is it time to stop? (based on global clock, using actual start)
-                if tThisFlipGlobal > show_current_town_weather.tStartRefresh + video_duration-frameTolerance:
-                    # keep track of stop time/frame for later
-                    show_current_town_weather.tStop = t  # not accounting for scr refresh
-                    show_current_town_weather.frameNStop = frameN  # exact frame index
-                    win.timeOnFlip(show_current_town_weather, 'tStopRefresh')  # time at next scr refresh
-                    show_current_town_weather.setAutoDraw(False)
-            
             # check for quit (typically the Esc key)
             if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
                 core.quit()
@@ -561,14 +637,12 @@ for thisLoop_video in loop_videos:
             if hasattr(thisComponent, "setAutoDraw"):
                 thisComponent.setAutoDraw(False)
         show_single_video.stop()
-        loop_clips.addData('show_current_town_weather.started', show_current_town_weather.tStartRefresh)
-        loop_clips.addData('show_current_town_weather.stopped', show_current_town_weather.tStopRefresh)
         # the Routine "show_single_r" was not non-slip safe, so reset the non-slip timer
         routineTimer.reset()
         
         # ------Prepare to start Routine "fix_cross_r_6"-------
         continueRoutine = True
-        routineTimer.add(6.000000)
+        routineTimer.add(10.000000)
         # update component parameters for each repeat
         # keep track of which components have finished
         fix_cross_r_6Components = [fixation_cross_6s]
@@ -604,7 +678,7 @@ for thisLoop_video in loop_videos:
                 fixation_cross_6s.setAutoDraw(True)
             if fixation_cross_6s.status == STARTED:
                 # is it time to stop? (based on global clock, using actual start)
-                if tThisFlipGlobal > fixation_cross_6s.tStartRefresh + 6.0-frameTolerance:
+                if tThisFlipGlobal > fixation_cross_6s.tStartRefresh + 10.0-frameTolerance:
                     # keep track of stop time/frame for later
                     fixation_cross_6s.tStop = t  # not accounting for scr refresh
                     fixation_cross_6s.frameNStop = frameN  # exact frame index
@@ -663,8 +737,10 @@ for thisLoop_video in loop_videos:
             key_question_for_know_or_not.keys = []
             key_question_for_know_or_not.rt = []
             _key_question_for_know_or_not_allKeys = []
+            image_answer_green_square.size=(0.0, 0.0)
+            
             # keep track of which components have finished
-            q_rComponents = [left_image_question_for_know_or_not, right_image_question_for_know_or_not, key_question_for_know_or_not, txt_question_for_know_or_not, left_arrow_image, right_arrow_image]
+            q_rComponents = [left_image_question_for_know_or_not, right_image_question_for_know_or_not, key_question_for_know_or_not, txt_question_for_know_or_not, left_arrow_image, right_arrow_image, image_answer_green_square]
             for thisComponent in q_rComponents:
                 thisComponent.tStart = None
                 thisComponent.tStop = None
@@ -697,7 +773,7 @@ for thisLoop_video in loop_videos:
                     left_image_question_for_know_or_not.setAutoDraw(True)
                 if left_image_question_for_know_or_not.status == STARTED:
                     # is it time to stop? (based on global clock, using actual start)
-                    if tThisFlipGlobal > left_image_question_for_know_or_not.tStartRefresh + 3.0-frameTolerance:
+                    if tThisFlipGlobal > left_image_question_for_know_or_not.tStartRefresh + 3-frameTolerance:
                         # keep track of stop time/frame for later
                         left_image_question_for_know_or_not.tStop = t  # not accounting for scr refresh
                         left_image_question_for_know_or_not.frameNStop = frameN  # exact frame index
@@ -714,7 +790,7 @@ for thisLoop_video in loop_videos:
                     right_image_question_for_know_or_not.setAutoDraw(True)
                 if right_image_question_for_know_or_not.status == STARTED:
                     # is it time to stop? (based on global clock, using actual start)
-                    if tThisFlipGlobal > right_image_question_for_know_or_not.tStartRefresh + 3.0-frameTolerance:
+                    if tThisFlipGlobal > right_image_question_for_know_or_not.tStartRefresh + 3-frameTolerance:
                         # keep track of stop time/frame for later
                         right_image_question_for_know_or_not.tStop = t  # not accounting for scr refresh
                         right_image_question_for_know_or_not.frameNStop = frameN  # exact frame index
@@ -753,8 +829,6 @@ for thisLoop_video in loop_videos:
                             key_question_for_know_or_not.corr = 1
                         else:
                             key_question_for_know_or_not.corr = 0
-                        # a response ends the routine
-                        continueRoutine = False
                 
                 # *txt_question_for_know_or_not* updates
                 if txt_question_for_know_or_not.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
@@ -766,7 +840,7 @@ for thisLoop_video in loop_videos:
                     txt_question_for_know_or_not.setAutoDraw(True)
                 if txt_question_for_know_or_not.status == STARTED:
                     # is it time to stop? (based on global clock, using actual start)
-                    if tThisFlipGlobal > txt_question_for_know_or_not.tStartRefresh + 3.0-frameTolerance:
+                    if tThisFlipGlobal > txt_question_for_know_or_not.tStartRefresh + 3-frameTolerance:
                         # keep track of stop time/frame for later
                         txt_question_for_know_or_not.tStop = t  # not accounting for scr refresh
                         txt_question_for_know_or_not.frameNStop = frameN  # exact frame index
@@ -783,7 +857,7 @@ for thisLoop_video in loop_videos:
                     left_arrow_image.setAutoDraw(True)
                 if left_arrow_image.status == STARTED:
                     # is it time to stop? (based on global clock, using actual start)
-                    if tThisFlipGlobal > left_arrow_image.tStartRefresh + 3.0-frameTolerance:
+                    if tThisFlipGlobal > left_arrow_image.tStartRefresh + 3-frameTolerance:
                         # keep track of stop time/frame for later
                         left_arrow_image.tStop = t  # not accounting for scr refresh
                         left_arrow_image.frameNStop = frameN  # exact frame index
@@ -806,6 +880,36 @@ for thisLoop_video in loop_videos:
                         right_arrow_image.frameNStop = frameN  # exact frame index
                         win.timeOnFlip(right_arrow_image, 'tStopRefresh')  # time at next scr refresh
                         right_arrow_image.setAutoDraw(False)
+                if key_question_for_know_or_not.status == STARTED:
+                    
+                    if (key_question_for_know_or_not.keys == 'left'):
+                        image_answer_green_square.pos=(-0.5, 0.4)
+                        image_answer_green_square.size=(0.2, 0.2)
+                        image_answer_green_square.setImage("media/green_square.png")
+                
+                    elif (key_question_for_know_or_not.keys == 'right'):
+                        image_answer_green_square.pos=(0.5, 0.4)
+                        image_answer_green_square.size=(0.2, 0.2)
+                        image_answer_green_square.setImage("media/green_square.png")
+                
+                
+                
+                # *image_answer_green_square* updates
+                if image_answer_green_square.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+                    # keep track of start time/frame for later
+                    image_answer_green_square.frameNStart = frameN  # exact frame index
+                    image_answer_green_square.tStart = t  # local t and not account for scr refresh
+                    image_answer_green_square.tStartRefresh = tThisFlipGlobal  # on global time
+                    win.timeOnFlip(image_answer_green_square, 'tStartRefresh')  # time at next scr refresh
+                    image_answer_green_square.setAutoDraw(True)
+                if image_answer_green_square.status == STARTED:
+                    # is it time to stop? (based on global clock, using actual start)
+                    if tThisFlipGlobal > image_answer_green_square.tStartRefresh + 3.0-frameTolerance:
+                        # keep track of stop time/frame for later
+                        image_answer_green_square.tStop = t  # not accounting for scr refresh
+                        image_answer_green_square.frameNStop = frameN  # exact frame index
+                        win.timeOnFlip(image_answer_green_square, 'tStopRefresh')  # time at next scr refresh
+                        image_answer_green_square.setAutoDraw(False)
                 
                 # check for quit (typically the Esc key)
                 if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
@@ -853,10 +957,12 @@ for thisLoop_video in loop_videos:
             loop_questions.addData('left_arrow_image.stopped', left_arrow_image.tStopRefresh)
             loop_questions.addData('right_arrow_image.started', right_arrow_image.tStartRefresh)
             loop_questions.addData('right_arrow_image.stopped', right_arrow_image.tStopRefresh)
+            loop_questions.addData('image_answer_green_square.started', image_answer_green_square.tStartRefresh)
+            loop_questions.addData('image_answer_green_square.stopped', image_answer_green_square.tStopRefresh)
             
             # ------Prepare to start Routine "a_r"-------
             continueRoutine = True
-            routineTimer.add(1.000000)
+            routineTimer.add(1.500000)
             # update component parameters for each repeat
             if (key_question_for_know_or_not.keys == str('None')) or (key_question_for_know_or_not.keys == None):
                 txt_answer_for_know_or_not.text = "You did not press the key!"
@@ -872,12 +978,16 @@ for thisLoop_video in loop_videos:
             
                 if (key_question_for_know_or_not.keys == str(correct_answer)) or (key_question_for_know_or_not.keys == correct_answer):
                     key_question_for_know_or_not.corr = 1
-                    txt_answer_for_know_or_not.text = "Your answer is right!"
+                    txt_answer_for_know_or_not.text = "Correct!"
                     txt_answer_for_know_or_not.color = "green"
+                    txt_answer_for_know_or_not.height = 0.08
                 else:
                     key_question_for_know_or_not.corr = 0
-                    txt_answer_for_know_or_not.text = "Your answer is wrong!"
+                    txt_answer_for_know_or_not.text = "Wrong!"
                     txt_answer_for_know_or_not.color = "red"
+                    txt_answer_for_know_or_not.height = 0.08
+            
+                    
             
             # keep track of which components have finished
             a_rComponents = [image_answer_for_know_or_not, txt_answer_for_know_or_not]
@@ -913,7 +1023,7 @@ for thisLoop_video in loop_videos:
                     image_answer_for_know_or_not.setAutoDraw(True)
                 if image_answer_for_know_or_not.status == STARTED:
                     # is it time to stop? (based on global clock, using actual start)
-                    if tThisFlipGlobal > image_answer_for_know_or_not.tStartRefresh + 1.0-frameTolerance:
+                    if tThisFlipGlobal > image_answer_for_know_or_not.tStartRefresh + 1.5-frameTolerance:
                         # keep track of stop time/frame for later
                         image_answer_for_know_or_not.tStop = t  # not accounting for scr refresh
                         image_answer_for_know_or_not.frameNStop = frameN  # exact frame index
@@ -930,7 +1040,7 @@ for thisLoop_video in loop_videos:
                     txt_answer_for_know_or_not.setAutoDraw(True)
                 if txt_answer_for_know_or_not.status == STARTED:
                     # is it time to stop? (based on global clock, using actual start)
-                    if tThisFlipGlobal > txt_answer_for_know_or_not.tStartRefresh + 1.0-frameTolerance:
+                    if tThisFlipGlobal > txt_answer_for_know_or_not.tStartRefresh + 1.5-frameTolerance:
                         # keep track of stop time/frame for later
                         txt_answer_for_know_or_not.tStop = t  # not accounting for scr refresh
                         txt_answer_for_know_or_not.frameNStop = frameN  # exact frame index
