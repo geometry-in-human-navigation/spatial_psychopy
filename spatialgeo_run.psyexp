@@ -63,7 +63,7 @@
         <Param name="durationEstim" updates="None" val="" valType="code"/>
         <Param name="forceEndRoutine" updates="constant" val="False" valType="bool"/>
         <Param name="loop" updates="None" val="False" valType="bool"/>
-        <Param name="movie" updates="set every repeat" val="$&quot;media/&quot;+str(town_weather_name)+&quot;/&quot;+str(video_name)+&quot;.mp4&quot;" valType="file"/>
+        <Param name="movie" updates="set every repeat" val="$&quot;media/videos/&quot;+str(town_weather_name)+&quot;/&quot;+str(town_weather_name)+&quot;_&quot;+str(video_name)+&quot;.mp4&quot;" valType="file"/>
         <Param name="name" updates="None" val="show_single_video" valType="code"/>
         <Param name="opacity" updates="constant" val="" valType="num"/>
         <Param name="ori" updates="constant" val="0" valType="num"/>
@@ -78,7 +78,7 @@
         <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
         <Param name="units" updates="None" val="from exp settings" valType="str"/>
       </MovieComponent>
-      <TextComponent name="show_current_town_weather_txt">
+      <TextComponent name="show_current_town_weather">
         <Param name="color" updates="constant" val="white" valType="color"/>
         <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
         <Param name="contrast" updates="constant" val="1" valType="num"/>
@@ -88,7 +88,7 @@
         <Param name="font" updates="constant" val="Open Sans" valType="str"/>
         <Param name="languageStyle" updates="None" val="LTR" valType="str"/>
         <Param name="letterHeight" updates="constant" val="0.03" valType="num"/>
-        <Param name="name" updates="None" val="show_current_town_weather_txt" valType="code"/>
+        <Param name="name" updates="None" val="show_current_town_weather" valType="code"/>
         <Param name="opacity" updates="constant" val="" valType="num"/>
         <Param name="ori" updates="constant" val="0" valType="num"/>
         <Param name="pos" updates="constant" val="(0, 0.45)" valType="list"/>
@@ -113,7 +113,7 @@
         <Param name="durationEstim" updates="None" val="" valType="code"/>
         <Param name="flipHoriz" updates="constant" val="False" valType="bool"/>
         <Param name="flipVert" updates="constant" val="False" valType="bool"/>
-        <Param name="image" updates="set every repeat" val="$&quot;media/&quot;+str(left_town_weather_name)+&quot;/&quot;+str(video_name)+&quot;_&quot;+str(left_image_name)+&quot;.jpg&quot;" valType="file"/>
+        <Param name="image" updates="constant" val="" valType="file"/>
         <Param name="interpolate" updates="constant" val="linear" valType="str"/>
         <Param name="mask" updates="constant" val="" valType="str"/>
         <Param name="name" updates="None" val="left_image_question_for_know_or_not" valType="code"/>
@@ -139,7 +139,7 @@
         <Param name="durationEstim" updates="None" val="" valType="code"/>
         <Param name="flipHoriz" updates="constant" val="False" valType="bool"/>
         <Param name="flipVert" updates="constant" val="False" valType="bool"/>
-        <Param name="image" updates="set every repeat" val="$&quot;media/&quot;+str(right_town_weather_name)+&quot;/&quot;+str(video_name)+&quot;_&quot;+str(right_image_name)+&quot;.jpg&quot;" valType="file"/>
+        <Param name="image" updates="constant" val="" valType="file"/>
         <Param name="interpolate" updates="constant" val="linear" valType="str"/>
         <Param name="mask" updates="constant" val="" valType="str"/>
         <Param name="name" updates="None" val="right_image_question_for_know_or_not" valType="code"/>
@@ -208,7 +208,7 @@
         <Param name="durationEstim" updates="None" val="" valType="code"/>
         <Param name="flipHoriz" updates="constant" val="False" valType="bool"/>
         <Param name="flipVert" updates="constant" val="False" valType="bool"/>
-        <Param name="image" updates="constant" val="media/question_left_arrow.png" valType="file"/>
+        <Param name="image" updates="constant" val="media/pic/question_left_arrow.png" valType="file"/>
         <Param name="interpolate" updates="constant" val="linear" valType="str"/>
         <Param name="mask" updates="constant" val="" valType="str"/>
         <Param name="name" updates="None" val="left_arrow_image" valType="code"/>
@@ -234,7 +234,7 @@
         <Param name="durationEstim" updates="None" val="" valType="code"/>
         <Param name="flipHoriz" updates="constant" val="False" valType="bool"/>
         <Param name="flipVert" updates="constant" val="False" valType="bool"/>
-        <Param name="image" updates="constant" val="media/question_right_arrow.png" valType="file"/>
+        <Param name="image" updates="constant" val="media/pic/question_right_arrow.png" valType="file"/>
         <Param name="interpolate" updates="constant" val="linear" valType="str"/>
         <Param name="mask" updates="constant" val="" valType="str"/>
         <Param name="name" updates="None" val="right_arrow_image" valType="code"/>
@@ -258,9 +258,9 @@
         <Param name="Begin Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Begin JS Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Begin JS Routine" updates="constant" val="" valType="extendedCode"/>
-        <Param name="Begin Routine" updates="constant" val="image_answer_green_square.size=(0.0, 0.0)&amp;#10;" valType="extendedCode"/>
+        <Param name="Begin Routine" updates="constant" val="image_answer_green_square.size=(0.0, 0.0)&amp;#10;&amp;#10;#-- set left and right image&amp;#10;video_question_dict = {&amp;#10;  &quot;clip0_q1&quot;: &quot;rgb_002000.jpg&quot;,&amp;#10;  &quot;clip0_q2&quot;: &quot;rgb_004000.jpg&quot;,&amp;#10;  &quot;clip1_q1&quot;: &quot;rgb_008000.jpg&quot;,&amp;#10;  &quot;clip1_q2&quot;: &quot;rgb_010000.jpg&quot;,&amp;#10;  &quot;clip2_q1&quot;: &quot;rgb_014000.jpg&quot;,&amp;#10;  &quot;clip2_q2&quot;: &quot;rgb_016000.jpg&quot;,&amp;#10;}&amp;#10;&amp;#10;# random choose left or right as a correct image, 0 for left, 1 for right&amp;#10;rand_binary = np.random.randint(2, size=1)[0]&amp;#10;current_video_img=str(video_name)+&quot;_&quot;+str(question_name)&amp;#10;correct_img_str=&quot;media/question_images/&quot;+str(town_weather_name)+&quot;/&quot;+str(video_question_dict[current_video_img])&amp;#10;&amp;#10;# random choose compared image from other towns except current town&amp;#10;current_town_num=town_weather_name.split(&quot;_&quot;)[0].split(&quot;n&quot;)[1]&amp;#10;current_weather=town_weather_name.split(&quot;_&quot;)[1]&amp;#10;town_index_list = [1, 2, 3, 4, 5, 6, 7, 8]&amp;#10;town_name_list = [&quot;Town01&quot;,&quot;Town02&quot;,&quot;Town03&quot;,&quot;Town04&quot;,&quot;Town05&quot;,&quot;Town06&quot;,&quot;Town07&quot;,&quot;Town10HD&quot;] &amp;#10;compared_town_num = np.random.choice([ele for ele in town_index_list if ele != current_town_num])&amp;#10;compared_town_weather_name = str(town_name_list[compared_town_num-1])+&quot;_&quot;+str(current_weather)&amp;#10;compared_img_str = &quot;media/question_images/&quot;+str(compared_town_weather_name)+&quot;/&quot;+str(video_question_dict[current_video_img])&amp;#10;&amp;#10;# display image&amp;#10;if rand_binary == 0: # 0 for left as correct&amp;#10;    correct_answer='left'&amp;#10;    left_image_question_for_know_or_not.setImage(correct_img_str)&amp;#10;    right_image_question_for_know_or_not.setImage(compared_img_str)&amp;#10;elif rand_binary == 1: # 1 for right as correct&amp;#10;    correct_answer='right'&amp;#10;    left_image_question_for_know_or_not.setImage(compared_img_str)&amp;#10;    right_image_question_for_know_or_not.setImage(correct_img_str)&amp;#10;&amp;#10;" valType="extendedCode"/>
         <Param name="Code Type" updates="None" val="Py" valType="str"/>
-        <Param name="Each Frame" updates="constant" val="if key_question_for_know_or_not.status == STARTED:&amp;#10;    &amp;#10;    if (key_question_for_know_or_not.keys == 'left'):&amp;#10;        image_answer_green_square.pos=(-0.5, 0.4)&amp;#10;        image_answer_green_square.size=(0.22, 0.22)&amp;#10;        image_answer_green_square.setImage(&quot;media/green_square.png&quot;)&amp;#10;&amp;#10;    elif (key_question_for_know_or_not.keys == 'right'):&amp;#10;        image_answer_green_square.pos=(0.5, 0.4)&amp;#10;        image_answer_green_square.size=(0.22, 0.22)&amp;#10;        image_answer_green_square.setImage(&quot;media/green_square.png&quot;)&amp;#10;&amp;#10;" valType="extendedCode"/>
+        <Param name="Each Frame" updates="constant" val="# detect the key press&amp;#10;if key_question_for_know_or_not.status == STARTED:&amp;#10;    &amp;#10;    if (key_question_for_know_or_not.keys == 'left'):&amp;#10;        image_answer_green_square.pos=(-0.5, 0.4)&amp;#10;        image_answer_green_square.size=(0.22, 0.22)&amp;#10;        image_answer_green_square.setImage(&quot;media/pic/green_square.png&quot;)&amp;#10;&amp;#10;    elif (key_question_for_know_or_not.keys == 'right'):&amp;#10;        image_answer_green_square.pos=(0.5, 0.4)&amp;#10;        image_answer_green_square.size=(0.22, 0.22)&amp;#10;        image_answer_green_square.setImage(&quot;media/pic/green_square.png&quot;)&amp;#10;&amp;#10;&amp;#10;&amp;#10;&amp;#10;" valType="extendedCode"/>
         <Param name="Each JS Frame" updates="constant" val="image_answer_green_square.i;&amp;#10;" valType="extendedCode"/>
         <Param name="End Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="End JS Experiment" updates="constant" val="" valType="extendedCode"/>
@@ -354,7 +354,7 @@
         <Param name="Begin Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Begin JS Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Begin JS Routine" updates="constant" val="" valType="extendedCode"/>
-        <Param name="Begin Routine" updates="constant" val="if (key_question_for_know_or_not.keys == str('None')) or (key_question_for_know_or_not.keys == None):&amp;#10;    txt_answer_for_know_or_not.text = &quot;You did not press the key!&quot;&amp;#10;    txt_answer_for_know_or_not.color = &quot;red&quot;&amp;#10;    image_answer_for_know_or_not.size=(0.6, 0.6)&amp;#10;    image_answer_for_know_or_not.setImage(&quot;media/no_symbol.png&quot;)&amp;#10;else:&amp;#10;    image_answer_for_know_or_not.size=(0.86, 0.51)&amp;#10;    if str(correct_answer) == 'left':&amp;#10;        image_answer_for_know_or_not.setImage(&quot;media/&quot;+str(left_town_weather_name)+&quot;/&quot;+str(video_name)+&quot;_&quot;+str(left_image_name)+&quot;.jpg&quot;)&amp;#10;    elif str(correct_answer) == 'right':&amp;#10;        image_answer_for_know_or_not.setImage(&quot;media/&quot;+str(right_town_weather_name)+&quot;/&quot;+str(video_name)+&quot;_&quot;+str(right_image_name)+&quot;.jpg&quot;)&amp;#10;&amp;#10;    if (key_question_for_know_or_not.keys == str(correct_answer)) or (key_question_for_know_or_not.keys == correct_answer):&amp;#10;        key_question_for_know_or_not.corr = 1&amp;#10;        txt_answer_for_know_or_not.text = &quot;Correct!&quot;&amp;#10;        txt_answer_for_know_or_not.color = &quot;green&quot;&amp;#10;        txt_answer_for_know_or_not.height = 0.08&amp;#10;    else:&amp;#10;        key_question_for_know_or_not.corr = 0&amp;#10;        txt_answer_for_know_or_not.text = &quot;Wrong!&quot;&amp;#10;        txt_answer_for_know_or_not.color = &quot;red&quot;&amp;#10;        txt_answer_for_know_or_not.height = 0.08&amp;#10;&amp;#10;        &amp;#10;" valType="extendedCode"/>
+        <Param name="Begin Routine" updates="constant" val="if (key_question_for_know_or_not.keys == str('None')) or (key_question_for_know_or_not.keys == None):&amp;#10;    txt_answer_for_know_or_not.text = &quot;You did not press the key!&quot;&amp;#10;    txt_answer_for_know_or_not.color = &quot;red&quot;&amp;#10;    image_answer_for_know_or_not.size=(0.6, 0.6)&amp;#10;    image_answer_for_know_or_not.setImage(&quot;media/pic/no_symbol.png&quot;)&amp;#10;else:&amp;#10;    image_answer_for_know_or_not.size=(0.86, 0.51)&amp;#10;#    if str(correct_answer) == 'left':&amp;#10;#        image_answer_for_know_or_not.setImage(correct_img_str)&amp;#10;#    elif str(correct_answer) == 'right':&amp;#10;#        image_answer_for_know_or_not.setImage(correct_img_str)&amp;#10;    image_answer_for_know_or_not.setImage(compared_img_str)&amp;#10;&amp;#10;    if (key_question_for_know_or_not.keys == str(correct_answer)):&amp;#10;        key_question_for_know_or_not.corr = 0&amp;#10;        txt_answer_for_know_or_not.text = &quot;Wrong!&quot;&amp;#10;        txt_answer_for_know_or_not.color = &quot;red&quot;&amp;#10;        txt_answer_for_know_or_not.height = 0.08&amp;#10;    else:&amp;#10;        key_question_for_know_or_not.corr = 1&amp;#10;        txt_answer_for_know_or_not.text = &quot;Correct!&quot;&amp;#10;        txt_answer_for_know_or_not.color = &quot;green&quot;&amp;#10;        txt_answer_for_know_or_not.height = 0.08&amp;#10;" valType="extendedCode"/>
         <Param name="Code Type" updates="None" val="Py" valType="str"/>
         <Param name="Each Frame" updates="constant" val="" valType="extendedCode"/>
         <Param name="Each JS Frame" updates="constant" val="" valType="extendedCode"/>
@@ -472,7 +472,7 @@
         <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
         <Param name="stopVal" updates="constant" val="" valType="code"/>
         <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
-        <Param name="text" updates="constant" val="The experiment is about to start…" valType="str"/>
+        <Param name="text" updates="constant" val="The experiment demo is about to start…" valType="str"/>
         <Param name="units" updates="None" val="from exp settings" valType="str"/>
         <Param name="wrapWidth" updates="constant" val="" valType="num"/>
       </TextComponent>
@@ -517,7 +517,7 @@
         <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
         <Param name="stopVal" updates="constant" val="" valType="code"/>
         <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
-        <Param name="text" updates="constant" val="Press space key to end this experiment." valType="str"/>
+        <Param name="text" updates="constant" val="Press space key to end this demo." valType="str"/>
         <Param name="units" updates="None" val="from exp settings" valType="str"/>
         <Param name="wrapWidth" updates="constant" val="" valType="num"/>
       </TextComponent>
@@ -633,12 +633,25 @@
     </Routine>
   </Routines>
   <Flow>
+    <LoopInitiator loopType="TrialHandler" name="loop_instruction_r">
+      <Param name="Selected rows" updates="None" val="" valType="str"/>
+      <Param name="conditions" updates="None" val="None" valType="str"/>
+      <Param name="conditionsFile" updates="None" val="" valType="file"/>
+      <Param name="endPoints" updates="None" val="[0, 1]" valType="num"/>
+      <Param name="isTrials" updates="None" val="True" valType="bool"/>
+      <Param name="loopType" updates="None" val="sequential" valType="str"/>
+      <Param name="nReps" updates="None" val="100" valType="num"/>
+      <Param name="name" updates="None" val="loop_instruction_r" valType="code"/>
+      <Param name="random seed" updates="None" val="" valType="code"/>
+    </LoopInitiator>
+    <Routine name="instruction_r"/>
+    <LoopTerminator name="loop_instruction_r"/>
     <Routine name="wait_for_start"/>
     <Routine name="fix_cross_r_4"/>
     <LoopInitiator loopType="TrialHandler" name="loop_videos">
       <Param name="Selected rows" updates="None" val="" valType="str"/>
-      <Param name="conditions" updates="None" val="[{'town_weather_name': 'Town01_ClearSunset'}, {'town_weather_name': 'Town07_ClearSunset'}, {'town_weather_name': 'Town01_ClearNoon'}, {'town_weather_name': 'Town07_ClearNoon'}]" valType="str"/>
-      <Param name="conditionsFile" updates="None" val="media/show_group_conditions.xlsx" valType="file"/>
+      <Param name="conditions" updates="None" val="[{'town_weather_name': 'Town01_ClearSunset'}, {'town_weather_name': 'Town02_ClearSunset'}, {'town_weather_name': 'Town03_ClearSunset'}, {'town_weather_name': 'Town04_ClearSunset'}, {'town_weather_name': 'Town05_ClearSunset'}, {'town_weather_name': 'Town06_ClearSunset'}, {'town_weather_name': 'Town07_ClearSunset'}]" valType="str"/>
+      <Param name="conditionsFile" updates="None" val="conditions/show_group_conditions.xlsx" valType="file"/>
       <Param name="endPoints" updates="None" val="[0, 1]" valType="num"/>
       <Param name="isTrials" updates="None" val="True" valType="bool"/>
       <Param name="loopType" updates="None" val="sequential" valType="str"/>
@@ -648,8 +661,8 @@
     </LoopInitiator>
     <LoopInitiator loopType="TrialHandler" name="loop_clips">
       <Param name="Selected rows" updates="None" val="" valType="str"/>
-      <Param name="conditions" updates="None" val="[{'video_name': 'clip_0_4', 'video_duration': 24}, {'video_name': 'clip_4_7', 'video_duration': 18}, {'video_name': 'clip_7_10', 'video_duration': 18}]" valType="str"/>
-      <Param name="conditionsFile" updates="None" val="media/show_clips_conditions.xlsx" valType="file"/>
+      <Param name="conditions" updates="None" val="[{'video_name': 'clip0', 'video_duration': 24}, {'video_name': 'clip1', 'video_duration': 18}, {'video_name': 'clip2', 'video_duration': 18}]" valType="str"/>
+      <Param name="conditionsFile" updates="None" val="conditions/show_clips_conditions.xlsx" valType="file"/>
       <Param name="endPoints" updates="None" val="[0, 1]" valType="num"/>
       <Param name="isTrials" updates="None" val="True" valType="bool"/>
       <Param name="loopType" updates="None" val="sequential" valType="str"/>
@@ -661,8 +674,8 @@
     <Routine name="fix_cross_r_6"/>
     <LoopInitiator loopType="TrialHandler" name="loop_questions">
       <Param name="Selected rows" updates="None" val="" valType="str"/>
-      <Param name="conditions" updates="None" val="None" valType="str"/>
-      <Param name="conditionsFile" updates="None" val="$&quot;media/&quot;+str(town_weather_name)+&quot;/question_conditions.xlsx&quot;" valType="file"/>
+      <Param name="conditions" updates="None" val="[{'question': 'q1'}, {'question': 'q2'}]" valType="str"/>
+      <Param name="conditionsFile" updates="None" val="conditions/question_conditions.xlsx" valType="file"/>
       <Param name="endPoints" updates="None" val="[0, 1]" valType="num"/>
       <Param name="isTrials" updates="None" val="True" valType="bool"/>
       <Param name="loopType" updates="None" val="sequential" valType="str"/>

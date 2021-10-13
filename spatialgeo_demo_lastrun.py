@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2021.2.3),
-    on Thu Sep 16 16:31:10 2021
+    on Wed Oct 13 19:17:52 2021
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -48,7 +48,7 @@ filename = _thisDir + os.sep + u'data/%s_%s_%s' % (expInfo['participant'], expNa
 # An ExperimentHandler isn't essential but helps with data saving
 thisExp = data.ExperimentHandler(name=expName, version='',
     extraInfo=expInfo, runtimeInfo=None,
-    originPath='/Users/taiping/Workspace/statespace/neuroimage/psychopy/spatialgeometry/spatialgeo_demo_lastrun.py',
+    originPath='/Volumes/StateSpace/research_backup/Postdoc_Times/UTokyoPostdoc/CompNeuro/3 Projects/spatialnavigation/decisionmaking/neuroimage/psychopy/spatialgeometry/spatialgeo_demo_lastrun.py',
     savePickle=True, saveWideText=True,
     dataFileName=filename)
 # save a log file for detail verbose info
@@ -130,7 +130,7 @@ q_rClock = core.Clock()
 left_image_question_for_know_or_not = visual.ImageStim(
     win=win,
     name='left_image_question_for_know_or_not', 
-    image='sin', mask=None,
+    image=None, mask=None,
     ori=0.0, pos=(-0.46, 0), size=(0.86, 0.51),
     color=[1,1,1], colorSpace='rgb', opacity=None,
     flipHoriz=False, flipVert=False,
@@ -138,7 +138,7 @@ left_image_question_for_know_or_not = visual.ImageStim(
 right_image_question_for_know_or_not = visual.ImageStim(
     win=win,
     name='right_image_question_for_know_or_not', 
-    image='sin', mask=None,
+    image=None, mask=None,
     ori=0.0, pos=(0.46, 0), size=(0.86, 0.51),
     color=[1,1,1], colorSpace='rgb', opacity=None,
     flipHoriz=False, flipVert=False,
@@ -154,7 +154,7 @@ txt_question_for_know_or_not = visual.TextStim(win=win, name='txt_question_for_k
 left_arrow_image = visual.ImageStim(
     win=win,
     name='left_arrow_image', 
-    image='media/question_left_arrow.png', mask=None,
+    image='media/pic/question_left_arrow.png', mask=None,
     ori=0.0, pos=(-0.5, 0.4), size=(0.2, 0.2),
     color=[1,1,1], colorSpace='rgb', opacity=None,
     flipHoriz=False, flipVert=False,
@@ -162,7 +162,7 @@ left_arrow_image = visual.ImageStim(
 right_arrow_image = visual.ImageStim(
     win=win,
     name='right_arrow_image', 
-    image='media/question_right_arrow.png', mask=None,
+    image='media/pic/question_right_arrow.png', mask=None,
     ori=0.0, pos=(0.5, 0.4), size=(0.2, 0.2),
     color=[1,1,1], colorSpace='rgb', opacity=None,
     flipHoriz=False, flipVert=False,
@@ -528,7 +528,7 @@ thisExp.addData('polygon.stopped', polygon.tStopRefresh)
 # set up handler to look after randomisation of conditions etc
 loop_videos = data.TrialHandler(nReps=1.0, method='sequential', 
     extraInfo=expInfo, originPath=-1,
-    trialList=data.importConditions('media/show_group_conditions.xlsx'),
+    trialList=data.importConditions('conditions/show_group_conditions.xlsx'),
     seed=None, name='loop_videos')
 thisExp.addLoop(loop_videos)  # add the loop to the experiment
 thisLoop_video = loop_videos.trialList[0]  # so we can initialise stimuli with some values
@@ -547,7 +547,7 @@ for thisLoop_video in loop_videos:
     # set up handler to look after randomisation of conditions etc
     loop_clips = data.TrialHandler(nReps=1.0, method='sequential', 
         extraInfo=expInfo, originPath=-1,
-        trialList=data.importConditions('media/show_clips_conditions.xlsx'),
+        trialList=data.importConditions('conditions/show_clips_conditions.xlsx'),
         seed=None, name='loop_clips')
     thisExp.addLoop(loop_clips)  # add the loop to the experiment
     thisLoop_clip = loop_clips.trialList[0]  # so we can initialise stimuli with some values
@@ -569,7 +569,7 @@ for thisLoop_video in loop_videos:
         show_single_video = visual.MovieStim3(
             win=win, name='show_single_video',
             noAudio = False,
-            filename="media/"+str(town_weather_name)+"/"+str(video_name)+".mp4",
+            filename="media/videos/"+str(town_weather_name)+"/"+str(town_weather_name)+"_"+str(video_name)+".mp4",
             ori=0.0, pos=(0, 0), opacity=None,
             loop=False,
             depth=0.0,
@@ -712,7 +712,7 @@ for thisLoop_video in loop_videos:
         # set up handler to look after randomisation of conditions etc
         loop_questions = data.TrialHandler(nReps=1.0, method='sequential', 
             extraInfo=expInfo, originPath=-1,
-            trialList=data.importConditions("media/"+str(town_weather_name)+"/question_conditions.xlsx"),
+            trialList=data.importConditions('conditions/question_conditions.xlsx'),
             seed=None, name='loop_questions')
         thisExp.addLoop(loop_questions)  # add the loop to the experiment
         thisLoop_question = loop_questions.trialList[0]  # so we can initialise stimuli with some values
@@ -732,12 +732,45 @@ for thisLoop_video in loop_videos:
             continueRoutine = True
             routineTimer.add(3.000000)
             # update component parameters for each repeat
-            left_image_question_for_know_or_not.setImage("media/"+str(left_town_weather_name)+"/"+str(video_name)+"_"+str(left_image_name)+".jpg")
-            right_image_question_for_know_or_not.setImage("media/"+str(right_town_weather_name)+"/"+str(video_name)+"_"+str(right_image_name)+".jpg")
             key_question_for_know_or_not.keys = []
             key_question_for_know_or_not.rt = []
             _key_question_for_know_or_not_allKeys = []
             image_answer_green_square.size=(0.0, 0.0)
+            
+            #-- set left and right image
+            video_question_dict = {
+              "clip0_q1": "rgb_002000.jpg",
+              "clip0_q2": "rgb_004000.jpg",
+              "clip1_q1": "rgb_008000.jpg",
+              "clip1_q2": "rgb_010000.jpg",
+              "clip2_q1": "rgb_014000.jpg",
+              "clip2_q2": "rgb_016000.jpg",
+            }
+            
+            # random choose left or right as a correct image, 0 for left, 1 for right
+            rand_binary = np.random.randint(2, size=1)[0]
+            current_video_img=str(video_name)+"_"+str(question_name)
+            correct_img_str="media/question_images/"+str(town_weather_name)+"/"+str(video_question_dict[current_video_img])
+            
+            # random choose compared image from other towns except current town
+            current_town_num=town_weather_name.split("_")[0].split("n")[1]
+            current_weather=town_weather_name.split("_")[1]
+            town_index_list = [1, 2, 3, 4, 5, 6, 7, 8]
+            town_name_list = ["Town01","Town02","Town03","Town04","Town05","Town06","Town07","Town10HD"] 
+            compared_town_num = np.random.choice([ele for ele in town_index_list if ele != current_town_num])
+            compared_town_weather_name = str(town_name_list[compared_town_num-1])+"_"+str(current_weather)
+            compared_img_str = "media/question_images/"+str(compared_town_weather_name)+"/"+str(video_question_dict[current_video_img])
+            
+            # display image
+            if rand_binary == 0: # 0 for left as correct
+                correct_answer='left'
+                left_image_question_for_know_or_not.setImage(correct_img_str)
+                right_image_question_for_know_or_not.setImage(compared_img_str)
+            elif rand_binary == 1: # 1 for right as correct
+                correct_answer='right'
+                left_image_question_for_know_or_not.setImage(compared_img_str)
+                right_image_question_for_know_or_not.setImage(correct_img_str)
+            
             
             # keep track of which components have finished
             q_rComponents = [left_image_question_for_know_or_not, right_image_question_for_know_or_not, key_question_for_know_or_not, txt_question_for_know_or_not, left_arrow_image, right_arrow_image, image_answer_green_square]
@@ -880,17 +913,21 @@ for thisLoop_video in loop_videos:
                         right_arrow_image.frameNStop = frameN  # exact frame index
                         win.timeOnFlip(right_arrow_image, 'tStopRefresh')  # time at next scr refresh
                         right_arrow_image.setAutoDraw(False)
+                # detect the key press
                 if key_question_for_know_or_not.status == STARTED:
                     
                     if (key_question_for_know_or_not.keys == 'left'):
                         image_answer_green_square.pos=(-0.5, 0.4)
                         image_answer_green_square.size=(0.22, 0.22)
-                        image_answer_green_square.setImage("media/green_square.png")
+                        image_answer_green_square.setImage("media/pic/green_square.png")
                 
                     elif (key_question_for_know_or_not.keys == 'right'):
                         image_answer_green_square.pos=(0.5, 0.4)
                         image_answer_green_square.size=(0.22, 0.22)
-                        image_answer_green_square.setImage("media/green_square.png")
+                        image_answer_green_square.setImage("media/pic/green_square.png")
+                
+                
+                
                 
                 
                 
@@ -968,26 +1005,24 @@ for thisLoop_video in loop_videos:
                 txt_answer_for_know_or_not.text = "You did not press the key!"
                 txt_answer_for_know_or_not.color = "red"
                 image_answer_for_know_or_not.size=(0.6, 0.6)
-                image_answer_for_know_or_not.setImage("media/no_symbol.png")
+                image_answer_for_know_or_not.setImage("media/pic/no_symbol.png")
             else:
                 image_answer_for_know_or_not.size=(0.86, 0.51)
-                if str(correct_answer) == 'left':
-                    image_answer_for_know_or_not.setImage("media/"+str(left_town_weather_name)+"/"+str(video_name)+"_"+str(left_image_name)+".jpg")
-                elif str(correct_answer) == 'right':
-                    image_answer_for_know_or_not.setImage("media/"+str(right_town_weather_name)+"/"+str(video_name)+"_"+str(right_image_name)+".jpg")
+            #    if str(correct_answer) == 'left':
+            #        image_answer_for_know_or_not.setImage(correct_img_str)
+            #    elif str(correct_answer) == 'right':
+                image_answer_for_know_or_not.setImage(correct_img_str)
             
-                if (key_question_for_know_or_not.keys == str(correct_answer)) or (key_question_for_know_or_not.keys == correct_answer):
-                    key_question_for_know_or_not.corr = 1
-                    txt_answer_for_know_or_not.text = "Correct!"
-                    txt_answer_for_know_or_not.color = "green"
-                    txt_answer_for_know_or_not.height = 0.08
-                else:
+                if (key_question_for_know_or_not.keys == str(correct_answer)):
                     key_question_for_know_or_not.corr = 0
                     txt_answer_for_know_or_not.text = "Wrong!"
                     txt_answer_for_know_or_not.color = "red"
                     txt_answer_for_know_or_not.height = 0.08
-            
-                    
+                else:
+                    key_question_for_know_or_not.corr = 1
+                    txt_answer_for_know_or_not.text = "Correct!"
+                    txt_answer_for_know_or_not.color = "green"
+                    txt_answer_for_know_or_not.height = 0.08
             
             # keep track of which components have finished
             a_rComponents = [image_answer_for_know_or_not, txt_answer_for_know_or_not]

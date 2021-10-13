@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2021.2.3),
-    on Thu Sep 16 15:56:38 2021
+    on Wed Oct 13 19:36:02 2021
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -48,7 +48,7 @@ filename = _thisDir + os.sep + u'data/%s_%s_%s' % (expInfo['participant'], expNa
 # An ExperimentHandler isn't essential but helps with data saving
 thisExp = data.ExperimentHandler(name=expName, version='',
     extraInfo=expInfo, runtimeInfo=None,
-    originPath='/Users/taiping/Workspace/statespace/neuroimage/psychopy/spatialgeometry/spatialgeo_lastrun.py',
+    originPath='/Volumes/StateSpace/research_backup/Postdoc_Times/UTokyoPostdoc/CompNeuro/3 Projects/spatialnavigation/decisionmaking/neuroimage/psychopy/spatialgeometry/spatialgeo_run_lastrun.py',
     savePickle=True, saveWideText=True,
     dataFileName=filename)
 # save a log file for detail verbose info
@@ -80,10 +80,23 @@ ioDevice = ioConfig = ioSession = ioServer = eyetracker = None
 # create a default keyboard (e.g. to check for escape)
 defaultKeyboard = keyboard.Keyboard()
 
+# Initialize components for Routine "instruction_r"
+instruction_rClock = core.Clock()
+instruction_img = visual.ImageStim(
+    win=win,
+    name='instruction_img', 
+    image='sin', mask=None,
+    ori=0.0, pos=(0, 0), size=(1.8, 1),
+    color=[1,1,1], colorSpace='rgb', opacity=None,
+    flipHoriz=False, flipVert=False,
+    texRes=128.0, interpolate=True, depth=0.0)
+instruction_key = keyboard.Keyboard()
+current_instruction = 1
+
 # Initialize components for Routine "wait_for_start"
 wait_for_startClock = core.Clock()
 wait_for_start_txt = visual.TextStim(win=win, name='wait_for_start_txt',
-    text='The experiment is about to start…',
+    text='The experiment demo is about to start…',
     font='Open Sans',
     pos=(0, 0), height=0.05, wrapWidth=None, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
@@ -117,7 +130,7 @@ q_rClock = core.Clock()
 left_image_question_for_know_or_not = visual.ImageStim(
     win=win,
     name='left_image_question_for_know_or_not', 
-    image='sin', mask=None,
+    image=None, mask=None,
     ori=0.0, pos=(-0.46, 0), size=(0.86, 0.51),
     color=[1,1,1], colorSpace='rgb', opacity=None,
     flipHoriz=False, flipVert=False,
@@ -125,7 +138,7 @@ left_image_question_for_know_or_not = visual.ImageStim(
 right_image_question_for_know_or_not = visual.ImageStim(
     win=win,
     name='right_image_question_for_know_or_not', 
-    image='sin', mask=None,
+    image=None, mask=None,
     ori=0.0, pos=(0.46, 0), size=(0.86, 0.51),
     color=[1,1,1], colorSpace='rgb', opacity=None,
     flipHoriz=False, flipVert=False,
@@ -141,7 +154,7 @@ txt_question_for_know_or_not = visual.TextStim(win=win, name='txt_question_for_k
 left_arrow_image = visual.ImageStim(
     win=win,
     name='left_arrow_image', 
-    image='media/question_left_arrow.png', mask=None,
+    image='media/pic/question_left_arrow.png', mask=None,
     ori=0.0, pos=(-0.5, 0.4), size=(0.2, 0.2),
     color=[1,1,1], colorSpace='rgb', opacity=None,
     flipHoriz=False, flipVert=False,
@@ -149,7 +162,7 @@ left_arrow_image = visual.ImageStim(
 right_arrow_image = visual.ImageStim(
     win=win,
     name='right_arrow_image', 
-    image='media/question_right_arrow.png', mask=None,
+    image='media/pic/question_right_arrow.png', mask=None,
     ori=0.0, pos=(0.5, 0.4), size=(0.2, 0.2),
     color=[1,1,1], colorSpace='rgb', opacity=None,
     flipHoriz=False, flipVert=False,
@@ -202,7 +215,7 @@ fixation_cross_10 = visual.ShapeStim(
 # Initialize components for Routine "the_end"
 the_endClock = core.Clock()
 the_end_txt = visual.TextStim(win=win, name='the_end_txt',
-    text='Press space key to end this experiment.',
+    text='Press space key to end this demo.',
     font='Open Sans',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
@@ -213,6 +226,139 @@ the_end_key = keyboard.Keyboard()
 # Create some handy timers
 globalClock = core.Clock()  # to track the time since experiment started
 routineTimer = core.CountdownTimer()  # to track time remaining of each (non-slip) routine 
+
+# set up handler to look after randomisation of conditions etc
+loop_instruction_r = data.TrialHandler(nReps=100.0, method='sequential', 
+    extraInfo=expInfo, originPath=-1,
+    trialList=[None],
+    seed=None, name='loop_instruction_r')
+thisExp.addLoop(loop_instruction_r)  # add the loop to the experiment
+thisLoop_instruction_r = loop_instruction_r.trialList[0]  # so we can initialise stimuli with some values
+# abbreviate parameter names if possible (e.g. rgb = thisLoop_instruction_r.rgb)
+if thisLoop_instruction_r != None:
+    for paramName in thisLoop_instruction_r:
+        exec('{} = thisLoop_instruction_r[paramName]'.format(paramName))
+
+for thisLoop_instruction_r in loop_instruction_r:
+    currentLoop = loop_instruction_r
+    # abbreviate parameter names if possible (e.g. rgb = thisLoop_instruction_r.rgb)
+    if thisLoop_instruction_r != None:
+        for paramName in thisLoop_instruction_r:
+            exec('{} = thisLoop_instruction_r[paramName]'.format(paramName))
+    
+    # ------Prepare to start Routine "instruction_r"-------
+    continueRoutine = True
+    # update component parameters for each repeat
+    instruction_img.setImage('instruction/instruction_' + str(current_instruction) + '.png')
+    instruction_key.keys = []
+    instruction_key.rt = []
+    _instruction_key_allKeys = []
+    # keep track of which components have finished
+    instruction_rComponents = [instruction_img, instruction_key]
+    for thisComponent in instruction_rComponents:
+        thisComponent.tStart = None
+        thisComponent.tStop = None
+        thisComponent.tStartRefresh = None
+        thisComponent.tStopRefresh = None
+        if hasattr(thisComponent, 'status'):
+            thisComponent.status = NOT_STARTED
+    # reset timers
+    t = 0
+    _timeToFirstFrame = win.getFutureFlipTime(clock="now")
+    instruction_rClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
+    frameN = -1
+    
+    # -------Run Routine "instruction_r"-------
+    while continueRoutine:
+        # get current time
+        t = instruction_rClock.getTime()
+        tThisFlip = win.getFutureFlipTime(clock=instruction_rClock)
+        tThisFlipGlobal = win.getFutureFlipTime(clock=None)
+        frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+        # update/draw components on each frame
+        
+        # *instruction_img* updates
+        if instruction_img.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            instruction_img.frameNStart = frameN  # exact frame index
+            instruction_img.tStart = t  # local t and not account for scr refresh
+            instruction_img.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(instruction_img, 'tStartRefresh')  # time at next scr refresh
+            instruction_img.setAutoDraw(True)
+        
+        # *instruction_key* updates
+        waitOnFlip = False
+        if instruction_key.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            instruction_key.frameNStart = frameN  # exact frame index
+            instruction_key.tStart = t  # local t and not account for scr refresh
+            instruction_key.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(instruction_key, 'tStartRefresh')  # time at next scr refresh
+            instruction_key.status = STARTED
+            # keyboard checking is just starting
+            waitOnFlip = True
+            win.callOnFlip(instruction_key.clock.reset)  # t=0 on next screen flip
+            win.callOnFlip(instruction_key.clearEvents, eventType='keyboard')  # clear events on next screen flip
+        if instruction_key.status == STARTED and not waitOnFlip:
+            theseKeys = instruction_key.getKeys(keyList=['left', 'right'], waitRelease=False)
+            _instruction_key_allKeys.extend(theseKeys)
+            if len(_instruction_key_allKeys):
+                instruction_key.keys = _instruction_key_allKeys[-1].name  # just the last key pressed
+                instruction_key.rt = _instruction_key_allKeys[-1].rt
+                # a response ends the routine
+                continueRoutine = False
+        if instruction_key.keys == 'left' and current_instruction > 1:
+            current_instruction = current_instruction - 1
+        elif instruction_key.keys == 'right':
+            current_instruction = current_instruction + 1
+            
+        if current_instruction == 9: # pressed 'right' on the last instructions
+            loop_instruction_r.finished = True
+            continueRoutine = False
+            
+        if current_instruction < 9: # pressed 'right' on the last instructions
+            str_instruction_img = 'instruction/instruction_' + str(current_instruction) + '.png'
+            instruction_img.setImage(str_instruction_img)
+        
+        
+        
+        # check for quit (typically the Esc key)
+        if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
+            core.quit()
+        
+        # check if all components have finished
+        if not continueRoutine:  # a component has requested a forced-end of Routine
+            break
+        continueRoutine = False  # will revert to True if at least one component still running
+        for thisComponent in instruction_rComponents:
+            if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+                continueRoutine = True
+                break  # at least one component has not yet finished
+        
+        # refresh the screen
+        if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+            win.flip()
+    
+    # -------Ending Routine "instruction_r"-------
+    for thisComponent in instruction_rComponents:
+        if hasattr(thisComponent, "setAutoDraw"):
+            thisComponent.setAutoDraw(False)
+    loop_instruction_r.addData('instruction_img.started', instruction_img.tStartRefresh)
+    loop_instruction_r.addData('instruction_img.stopped', instruction_img.tStopRefresh)
+    # check responses
+    if instruction_key.keys in ['', [], None]:  # No response was made
+        instruction_key.keys = None
+    loop_instruction_r.addData('instruction_key.keys',instruction_key.keys)
+    if instruction_key.keys != None:  # we had a response
+        loop_instruction_r.addData('instruction_key.rt', instruction_key.rt)
+    loop_instruction_r.addData('instruction_key.started', instruction_key.tStartRefresh)
+    loop_instruction_r.addData('instruction_key.stopped', instruction_key.tStopRefresh)
+    # the Routine "instruction_r" was not non-slip safe, so reset the non-slip timer
+    routineTimer.reset()
+    thisExp.nextEntry()
+    
+# completed 100.0 repeats of 'loop_instruction_r'
+
 
 # ------Prepare to start Routine "wait_for_start"-------
 continueRoutine = True
@@ -382,7 +528,7 @@ thisExp.addData('polygon.stopped', polygon.tStopRefresh)
 # set up handler to look after randomisation of conditions etc
 loop_videos = data.TrialHandler(nReps=1.0, method='sequential', 
     extraInfo=expInfo, originPath=-1,
-    trialList=data.importConditions('media/show_group_conditions.xlsx'),
+    trialList=data.importConditions('conditions/show_group_conditions.xlsx'),
     seed=None, name='loop_videos')
 thisExp.addLoop(loop_videos)  # add the loop to the experiment
 thisLoop_video = loop_videos.trialList[0]  # so we can initialise stimuli with some values
@@ -401,7 +547,7 @@ for thisLoop_video in loop_videos:
     # set up handler to look after randomisation of conditions etc
     loop_clips = data.TrialHandler(nReps=1.0, method='sequential', 
         extraInfo=expInfo, originPath=-1,
-        trialList=data.importConditions('media/show_clips_conditions.xlsx'),
+        trialList=data.importConditions('conditions/show_clips_conditions.xlsx'),
         seed=None, name='loop_clips')
     thisExp.addLoop(loop_clips)  # add the loop to the experiment
     thisLoop_clip = loop_clips.trialList[0]  # so we can initialise stimuli with some values
@@ -423,7 +569,7 @@ for thisLoop_video in loop_videos:
         show_single_video = visual.MovieStim3(
             win=win, name='show_single_video',
             noAudio = False,
-            filename="media/"+str(town_weather_name)+"/"+str(video_name)+".mp4",
+            filename="media/videos/"+str(town_weather_name)+"/"+str(town_weather_name)+"_"+str(video_name)+".mp4",
             ori=0.0, pos=(0, 0), opacity=None,
             loop=False,
             depth=0.0,
@@ -566,7 +712,7 @@ for thisLoop_video in loop_videos:
         # set up handler to look after randomisation of conditions etc
         loop_questions = data.TrialHandler(nReps=1.0, method='sequential', 
             extraInfo=expInfo, originPath=-1,
-            trialList=data.importConditions("media/"+str(town_weather_name)+"/question_conditions.xlsx"),
+            trialList=data.importConditions('conditions/question_conditions.xlsx'),
             seed=None, name='loop_questions')
         thisExp.addLoop(loop_questions)  # add the loop to the experiment
         thisLoop_question = loop_questions.trialList[0]  # so we can initialise stimuli with some values
@@ -586,12 +732,45 @@ for thisLoop_video in loop_videos:
             continueRoutine = True
             routineTimer.add(3.000000)
             # update component parameters for each repeat
-            left_image_question_for_know_or_not.setImage("media/"+str(left_town_weather_name)+"/"+str(video_name)+"_"+str(left_image_name)+".jpg")
-            right_image_question_for_know_or_not.setImage("media/"+str(right_town_weather_name)+"/"+str(video_name)+"_"+str(right_image_name)+".jpg")
             key_question_for_know_or_not.keys = []
             key_question_for_know_or_not.rt = []
             _key_question_for_know_or_not_allKeys = []
             image_answer_green_square.size=(0.0, 0.0)
+            
+            #-- set left and right image
+            video_question_dict = {
+              "clip0_q1": "rgb_002000.jpg",
+              "clip0_q2": "rgb_004000.jpg",
+              "clip1_q1": "rgb_008000.jpg",
+              "clip1_q2": "rgb_010000.jpg",
+              "clip2_q1": "rgb_014000.jpg",
+              "clip2_q2": "rgb_016000.jpg",
+            }
+            
+            # random choose left or right as a correct image, 0 for left, 1 for right
+            rand_binary = np.random.randint(2, size=1)[0]
+            current_video_img=str(video_name)+"_"+str(question_name)
+            correct_img_str="media/question_images/"+str(town_weather_name)+"/"+str(video_question_dict[current_video_img])
+            
+            # random choose compared image from other towns except current town
+            current_town_num=town_weather_name.split("_")[0].split("n")[1]
+            current_weather=town_weather_name.split("_")[1]
+            town_index_list = [1, 2, 3, 4, 5, 6, 7, 8]
+            town_name_list = ["Town01","Town02","Town03","Town04","Town05","Town06","Town07","Town10HD"] 
+            compared_town_num = np.random.choice([ele for ele in town_index_list if ele != current_town_num])
+            compared_town_weather_name = str(town_name_list[compared_town_num-1])+"_"+str(current_weather)
+            compared_img_str = "media/question_images/"+str(compared_town_weather_name)+"/"+str(video_question_dict[current_video_img])
+            
+            # display image
+            if rand_binary == 0: # 0 for left as correct
+                correct_answer='left'
+                left_image_question_for_know_or_not.setImage(correct_img_str)
+                right_image_question_for_know_or_not.setImage(compared_img_str)
+            elif rand_binary == 1: # 1 for right as correct
+                correct_answer='right'
+                left_image_question_for_know_or_not.setImage(compared_img_str)
+                right_image_question_for_know_or_not.setImage(correct_img_str)
+            
             
             # keep track of which components have finished
             q_rComponents = [left_image_question_for_know_or_not, right_image_question_for_know_or_not, key_question_for_know_or_not, txt_question_for_know_or_not, left_arrow_image, right_arrow_image, image_answer_green_square]
@@ -734,17 +913,21 @@ for thisLoop_video in loop_videos:
                         right_arrow_image.frameNStop = frameN  # exact frame index
                         win.timeOnFlip(right_arrow_image, 'tStopRefresh')  # time at next scr refresh
                         right_arrow_image.setAutoDraw(False)
+                # detect the key press
                 if key_question_for_know_or_not.status == STARTED:
                     
                     if (key_question_for_know_or_not.keys == 'left'):
                         image_answer_green_square.pos=(-0.5, 0.4)
                         image_answer_green_square.size=(0.22, 0.22)
-                        image_answer_green_square.setImage("media/green_square.png")
+                        image_answer_green_square.setImage("media/pic/green_square.png")
                 
                     elif (key_question_for_know_or_not.keys == 'right'):
                         image_answer_green_square.pos=(0.5, 0.4)
                         image_answer_green_square.size=(0.22, 0.22)
-                        image_answer_green_square.setImage("media/green_square.png")
+                        image_answer_green_square.setImage("media/pic/green_square.png")
+                
+                
+                
                 
                 
                 
@@ -822,26 +1005,24 @@ for thisLoop_video in loop_videos:
                 txt_answer_for_know_or_not.text = "You did not press the key!"
                 txt_answer_for_know_or_not.color = "red"
                 image_answer_for_know_or_not.size=(0.6, 0.6)
-                image_answer_for_know_or_not.setImage("media/no_symbol.png")
+                image_answer_for_know_or_not.setImage("media/pic/no_symbol.png")
             else:
                 image_answer_for_know_or_not.size=(0.86, 0.51)
-                if str(correct_answer) == 'left':
-                    image_answer_for_know_or_not.setImage("media/"+str(left_town_weather_name)+"/"+str(video_name)+"_"+str(left_image_name)+".jpg")
-                elif str(correct_answer) == 'right':
-                    image_answer_for_know_or_not.setImage("media/"+str(right_town_weather_name)+"/"+str(video_name)+"_"+str(right_image_name)+".jpg")
+            #    if str(correct_answer) == 'left':
+            #        image_answer_for_know_or_not.setImage(correct_img_str)
+            #    elif str(correct_answer) == 'right':
+                image_answer_for_know_or_not.setImage(correct_img_str)
             
-                if (key_question_for_know_or_not.keys == str(correct_answer)) or (key_question_for_know_or_not.keys == correct_answer):
-                    key_question_for_know_or_not.corr = 1
-                    txt_answer_for_know_or_not.text = "Correct!"
-                    txt_answer_for_know_or_not.color = "green"
-                    txt_answer_for_know_or_not.height = 0.08
-                else:
+                if (key_question_for_know_or_not.keys == str(correct_answer)):
                     key_question_for_know_or_not.corr = 0
                     txt_answer_for_know_or_not.text = "Wrong!"
                     txt_answer_for_know_or_not.color = "red"
                     txt_answer_for_know_or_not.height = 0.08
-            
-                    
+                else:
+                    key_question_for_know_or_not.corr = 1
+                    txt_answer_for_know_or_not.text = "Correct!"
+                    txt_answer_for_know_or_not.color = "green"
+                    txt_answer_for_know_or_not.height = 0.08
             
             # keep track of which components have finished
             a_rComponents = [image_answer_for_know_or_not, txt_answer_for_know_or_not]
