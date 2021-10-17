@@ -7,7 +7,7 @@
     <Param name="Data file delimiter" updates="None" val="auto" valType="str"/>
     <Param name="Data filename" updates="None" val="u'data/%s_%s_%s' % (expInfo['participant'], expName, expInfo['date'])" valType="code"/>
     <Param name="Enable Escape" updates="None" val="True" valType="bool"/>
-    <Param name="Experiment info" updates="None" val="{'participant': '00', 'session': '001'}" valType="code"/>
+    <Param name="Experiment info" updates="None" val="{'participant': '00', 'run': '00'}" valType="code"/>
     <Param name="Force stereo" updates="None" val="True" valType="bool"/>
     <Param name="Full-screen window" updates="None" val="True" valType="bool"/>
     <Param name="HTML path" updates="None" val="" valType="str"/>
@@ -21,7 +21,7 @@
     <Param name="Save psydat file" updates="None" val="True" valType="bool"/>
     <Param name="Save wide csv file" updates="None" val="True" valType="bool"/>
     <Param name="Screen" updates="None" val="1" valType="num"/>
-    <Param name="Show info dlg" updates="None" val="False" valType="bool"/>
+    <Param name="Show info dlg" updates="None" val="True" valType="bool"/>
     <Param name="Show mouse" updates="None" val="False" valType="bool"/>
     <Param name="Units" updates="None" val="height" valType="str"/>
     <Param name="Use version" updates="None" val="" valType="str"/>
@@ -108,7 +108,7 @@
         <Param name="units" updates="None" val="from exp settings" valType="str"/>
       </ImageComponent>
       <KeyboardComponent name="key_question_for_know_or_not">
-        <Param name="allowedKeys" updates="constant" val="'left','right'" valType="list"/>
+        <Param name="allowedKeys" updates="constant" val="'left','right','1','4'" valType="list"/>
         <Param name="correctAns" updates="constant" val="$correct_answer" valType="str"/>
         <Param name="disabled" updates="None" val="False" valType="bool"/>
         <Param name="discard previous" updates="constant" val="True" valType="bool"/>
@@ -197,7 +197,7 @@
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
         <Param name="startVal" updates="None" val="0.0" valType="code"/>
         <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
-        <Param name="stopVal" updates="constant" val="3.0" valType="code"/>
+        <Param name="stopVal" updates="constant" val="3" valType="code"/>
         <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
         <Param name="texture resolution" updates="constant" val="128" valType="num"/>
         <Param name="units" updates="None" val="from exp settings" valType="str"/>
@@ -208,9 +208,9 @@
         <Param name="Begin Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Begin JS Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Begin JS Routine" updates="constant" val="" valType="extendedCode"/>
-        <Param name="Begin Routine" updates="constant" val="image_answer_green_square.size=(0.0, 0.0)&amp;#10;&amp;#10;#-- set left and right image&amp;#10;video_question_dict = {&amp;#10;  &quot;clip0_q1&quot;: &quot;rgb_002000.jpg&quot;,&amp;#10;  &quot;clip0_q2&quot;: &quot;rgb_004000.jpg&quot;,&amp;#10;  &quot;clip1_q1&quot;: &quot;rgb_008000.jpg&quot;,&amp;#10;  &quot;clip1_q2&quot;: &quot;rgb_010000.jpg&quot;,&amp;#10;  &quot;clip2_q1&quot;: &quot;rgb_014000.jpg&quot;,&amp;#10;  &quot;clip2_q2&quot;: &quot;rgb_016000.jpg&quot;,&amp;#10;}&amp;#10;&amp;#10;# random choose left or right as a correct image, 0 for left, 1 for right&amp;#10;rand_binary = np.random.randint(2, size=1)[0]&amp;#10;current_video_img=str(video_name)+&quot;_&quot;+str(question_name)&amp;#10;correct_img_str=&quot;media/question_images/&quot;+str(town_weather_name)+&quot;/&quot;+str(video_question_dict[current_video_img])&amp;#10;&amp;#10;# random choose compared image from other towns except current town&amp;#10;current_town_num=town_weather_name.split(&quot;_&quot;)[0].split(&quot;n&quot;)[1]&amp;#10;current_weather=town_weather_name.split(&quot;_&quot;)[1]&amp;#10;town_index_list = [1, 2, 3, 4, 5, 6, 7, 8]&amp;#10;town_name_list = [&quot;Town01&quot;,&quot;Town02&quot;,&quot;Town03&quot;,&quot;Town04&quot;,&quot;Town05&quot;,&quot;Town06&quot;,&quot;Town07&quot;,&quot;Town10HD&quot;] &amp;#10;compared_town_num = np.random.choice([ele for ele in town_index_list if ele != int(current_town_num)])&amp;#10;compared_town_weather_name = str(town_name_list[compared_town_num-1])+&quot;_&quot;+str(current_weather)&amp;#10;compared_img_str = &quot;media/question_images/&quot;+str(compared_town_weather_name)+&quot;/&quot;+str(video_question_dict[current_video_img])&amp;#10;&amp;#10;# display image&amp;#10;if rand_binary == 0: # 0 for left as correct&amp;#10;    correct_answer='left'&amp;#10;    left_image_question_for_know_or_not.setImage(correct_img_str)&amp;#10;    right_image_question_for_know_or_not.setImage(compared_img_str)&amp;#10;elif rand_binary == 1: # 1 for right as correct&amp;#10;    correct_answer='right'&amp;#10;    left_image_question_for_know_or_not.setImage(compared_img_str)&amp;#10;    right_image_question_for_know_or_not.setImage(correct_img_str)&amp;#10;&amp;#10;" valType="extendedCode"/>
+        <Param name="Begin Routine" updates="constant" val="image_answer_green_square.size=(0.0, 0.0)&amp;#10;&amp;#10;#-- set left and right image&amp;#10;video_question_dict = {&amp;#10;  &quot;clip0_q1&quot;: &quot;rgb_002000.jpg&quot;,&amp;#10;  &quot;clip0_q2&quot;: &quot;rgb_004000.jpg&quot;,&amp;#10;  &quot;clip1_q1&quot;: &quot;rgb_008000.jpg&quot;,&amp;#10;  &quot;clip1_q2&quot;: &quot;rgb_010000.jpg&quot;,&amp;#10;  &quot;clip2_q1&quot;: &quot;rgb_014000.jpg&quot;,&amp;#10;  &quot;clip2_q2&quot;: &quot;rgb_016000.jpg&quot;,&amp;#10;}&amp;#10;&amp;#10;# random choose left or right as a correct image, 0 for left, 1 for right&amp;#10;rand_binary = np.random.randint(2, size=1)[0]&amp;#10;current_video_img=str(video_name)+&quot;_&quot;+str(question_name)&amp;#10;correct_img_str=&quot;media/question_images/&quot;+str(town_weather_name)+&quot;/&quot;+str(video_question_dict[current_video_img])&amp;#10;&amp;#10;# random choose compared image from other towns except current town&amp;#10;current_town_num=town_weather_name.split(&quot;_&quot;)[0].split(&quot;n&quot;)[1]&amp;#10;current_weather=town_weather_name.split(&quot;_&quot;)[1]&amp;#10;town_index_list = [1, 2, 3, 4, 5, 6, 7, 8]&amp;#10;town_name_list = [&quot;Town01&quot;,&quot;Town02&quot;,&quot;Town03&quot;,&quot;Town04&quot;,&quot;Town05&quot;,&quot;Town06&quot;,&quot;Town07&quot;,&quot;Town10HD&quot;] &amp;#10;compared_town_num = np.random.choice([ele for ele in town_index_list if ele != int(current_town_num)])&amp;#10;compared_town_weather_name = str(town_name_list[compared_town_num-1])+&quot;_&quot;+str(current_weather)&amp;#10;compared_img_str = &quot;media/question_images/&quot;+str(compared_town_weather_name)+&quot;/&quot;+str(video_question_dict[current_video_img])&amp;#10;&amp;#10;# display image&amp;#10;if rand_binary == 0: # 0 for left as correct&amp;#10;    correct_answer='left'&amp;#10;    correct_num='1'&amp;#10;    left_image_question_for_know_or_not.setImage(correct_img_str)&amp;#10;    right_image_question_for_know_or_not.setImage(compared_img_str)&amp;#10;elif rand_binary == 1: # 1 for right as correct&amp;#10;    correct_answer='right'&amp;#10;    correct_num='4'&amp;#10;    left_image_question_for_know_or_not.setImage(compared_img_str)&amp;#10;    right_image_question_for_know_or_not.setImage(correct_img_str)&amp;#10;&amp;#10;" valType="extendedCode"/>
         <Param name="Code Type" updates="None" val="Py" valType="str"/>
-        <Param name="Each Frame" updates="constant" val="# detect the key press&amp;#10;if key_question_for_know_or_not.status == STARTED:&amp;#10;    &amp;#10;    if (key_question_for_know_or_not.keys == 'left'):&amp;#10;        image_answer_green_square.pos=(-0.5, 0.4)&amp;#10;        image_answer_green_square.size=(0.22, 0.22)&amp;#10;        image_answer_green_square.setImage(&quot;media/pic/green_square.png&quot;)&amp;#10;&amp;#10;    elif (key_question_for_know_or_not.keys == 'right'):&amp;#10;        image_answer_green_square.pos=(0.5, 0.4)&amp;#10;        image_answer_green_square.size=(0.22, 0.22)&amp;#10;        image_answer_green_square.setImage(&quot;media/pic/green_square.png&quot;)&amp;#10;&amp;#10;&amp;#10;&amp;#10;&amp;#10;" valType="extendedCode"/>
+        <Param name="Each Frame" updates="constant" val="# detect the key press&amp;#10;if key_question_for_know_or_not.status == STARTED:&amp;#10;    &amp;#10;    if (key_question_for_know_or_not.keys == 'left' or key_question_for_know_or_not.keys == '1'):&amp;#10;        image_answer_green_square.pos=(-0.5, 0.4)&amp;#10;        image_answer_green_square.size=(0.22, 0.22)&amp;#10;        image_answer_green_square.setImage(&quot;media/pic/green_square.png&quot;)&amp;#10;&amp;#10;    elif (key_question_for_know_or_not.keys == 'right' or key_question_for_know_or_not.keys == '4'):&amp;#10;        image_answer_green_square.pos=(0.5, 0.4)&amp;#10;        image_answer_green_square.size=(0.22, 0.22)&amp;#10;        image_answer_green_square.setImage(&quot;media/pic/green_square.png&quot;)&amp;#10;&amp;#10;&amp;#10;&amp;#10;&amp;#10;" valType="extendedCode"/>
         <Param name="Each JS Frame" updates="constant" val="image_answer_green_square.i;&amp;#10;" valType="extendedCode"/>
         <Param name="End Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="End JS Experiment" updates="constant" val="" valType="extendedCode"/>
@@ -240,7 +240,7 @@
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
         <Param name="startVal" updates="None" val="0.0" valType="code"/>
         <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
-        <Param name="stopVal" updates="constant" val="3.0" valType="code"/>
+        <Param name="stopVal" updates="constant" val="3" valType="code"/>
         <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
         <Param name="texture resolution" updates="constant" val="128" valType="num"/>
         <Param name="units" updates="None" val="from exp settings" valType="str"/>
@@ -304,7 +304,7 @@
         <Param name="Begin Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Begin JS Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Begin JS Routine" updates="constant" val="" valType="extendedCode"/>
-        <Param name="Begin Routine" updates="constant" val="if (key_question_for_know_or_not.keys == str('None')) or (key_question_for_know_or_not.keys == None):&amp;#10;    txt_answer_for_know_or_not.text = &quot;You did not press the key!&quot;&amp;#10;    txt_answer_for_know_or_not.color = &quot;red&quot;&amp;#10;    image_answer_for_know_or_not.size=(0.6, 0.6)&amp;#10;    image_answer_for_know_or_not.setImage(&quot;media/pic/no_symbol.png&quot;)&amp;#10;    thisExp.addData('show_single_clip_answer', &quot;none&quot;)&amp;#10;    &amp;#10;else:&amp;#10;    image_answer_for_know_or_not.size=(0.86, 0.51)&amp;#10;#    if str(correct_answer) == 'left':&amp;#10;#        image_answer_for_know_or_not.setImage(correct_img_str)&amp;#10;#    elif str(correct_answer) == 'right':&amp;#10;#        image_answer_for_know_or_not.setImage(correct_img_str)&amp;#10;    image_answer_for_know_or_not.setImage(compared_img_str)&amp;#10;&amp;#10;    if (key_question_for_know_or_not.keys == str(correct_answer)):&amp;#10;        key_question_for_know_or_not.corr = 0&amp;#10;        txt_answer_for_know_or_not.text = &quot;Wrong!&quot;&amp;#10;        txt_answer_for_know_or_not.color = &quot;red&quot;&amp;#10;        txt_answer_for_know_or_not.height = 0.08&amp;#10;        thisExp.addData('show_single_clip_answer', &quot;wrong&quot;)&amp;#10;    else:&amp;#10;        key_question_for_know_or_not.corr = 1&amp;#10;        txt_answer_for_know_or_not.text = &quot;Correct!&quot;&amp;#10;        txt_answer_for_know_or_not.color = &quot;green&quot;&amp;#10;        txt_answer_for_know_or_not.height = 0.08&amp;#10;        thisExp.addData('show_single_clip_answer', &quot;correct&quot;)&amp;#10;" valType="extendedCode"/>
+        <Param name="Begin Routine" updates="constant" val="if (key_question_for_know_or_not.keys == str('None')) or (key_question_for_know_or_not.keys == None):&amp;#10;    txt_answer_for_know_or_not.text = &quot;You did not press the key!&quot;&amp;#10;    txt_answer_for_know_or_not.color = &quot;red&quot;&amp;#10;    image_answer_for_know_or_not.size=(0.6, 0.6)&amp;#10;    image_answer_for_know_or_not.setImage(&quot;media/pic/no_symbol.png&quot;)&amp;#10;    thisExp.addData('show_single_clip_answer', &quot;none&quot;)&amp;#10;    &amp;#10;else:&amp;#10;    image_answer_for_know_or_not.size=(0.86, 0.51)&amp;#10;#    if str(correct_answer) == 'left':&amp;#10;#        image_answer_for_know_or_not.setImage(correct_img_str)&amp;#10;#    elif str(correct_answer) == 'right':&amp;#10;#        image_answer_for_know_or_not.setImage(correct_img_str)&amp;#10;    image_answer_for_know_or_not.setImage(compared_img_str)&amp;#10;&amp;#10;    if (key_question_for_know_or_not.keys == str(correct_answer) or key_question_for_know_or_not.keys == str(correct_num)):&amp;#10;        key_question_for_know_or_not.corr = 0&amp;#10;        txt_answer_for_know_or_not.text = &quot;Wrong!&quot;&amp;#10;        txt_answer_for_know_or_not.color = &quot;red&quot;&amp;#10;        txt_answer_for_know_or_not.height = 0.08&amp;#10;        thisExp.addData('show_single_clip_answer', &quot;wrong&quot;)&amp;#10;    else:&amp;#10;        key_question_for_know_or_not.corr = 1&amp;#10;        txt_answer_for_know_or_not.text = &quot;Correct!&quot;&amp;#10;        txt_answer_for_know_or_not.color = &quot;green&quot;&amp;#10;        txt_answer_for_know_or_not.height = 0.08&amp;#10;        thisExp.addData('show_single_clip_answer', &quot;correct&quot;)&amp;#10;" valType="extendedCode"/>
         <Param name="Code Type" updates="None" val="Py" valType="str"/>
         <Param name="Each Frame" updates="constant" val="" valType="extendedCode"/>
         <Param name="Each JS Frame" updates="constant" val="" valType="extendedCode"/>
@@ -366,7 +366,7 @@
         <Param name="Begin Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Begin JS Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Begin JS Routine" updates="constant" val="" valType="extendedCode"/>
-        <Param name="Begin Routine" updates="constant" val="thisExp.addData('wait_for_start_begin_routine', core.monotonicClock.getTime())&amp;#10;" valType="extendedCode"/>
+        <Param name="Begin Routine" updates="constant" val="thisExp.addData('wait_for_start_begin_routine', core.monotonicClock.getTime())&amp;#10;win.mouseVisible = False" valType="extendedCode"/>
         <Param name="Code Type" updates="None" val="Py" valType="str"/>
         <Param name="Each Frame" updates="constant" val="" valType="extendedCode"/>
         <Param name="Each JS Frame" updates="constant" val="" valType="extendedCode"/>
@@ -400,12 +400,12 @@
         <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
         <Param name="stopVal" updates="constant" val="" valType="code"/>
         <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
-        <Param name="text" updates="constant" val="Press space key to end this demo." valType="str"/>
+        <Param name="text" updates="constant" val="Press space key to end this experiment." valType="str"/>
         <Param name="units" updates="None" val="from exp settings" valType="str"/>
         <Param name="wrapWidth" updates="constant" val="" valType="num"/>
       </TextComponent>
       <KeyboardComponent name="the_end_key">
-        <Param name="allowedKeys" updates="constant" val="'y','n','left','right','space'" valType="list"/>
+        <Param name="allowedKeys" updates="constant" val="'space'" valType="list"/>
         <Param name="correctAns" updates="constant" val="" valType="str"/>
         <Param name="disabled" updates="None" val="False" valType="bool"/>
         <Param name="discard previous" updates="constant" val="True" valType="bool"/>
@@ -670,7 +670,7 @@
     <Routine name="wait_for_start"/>
     <Routine name="fix_cross_r_scan"/>
     <LoopInitiator loopType="TrialHandler" name="loop_videos">
-      <Param name="Selected rows" updates="None" val="" valType="str"/>
+      <Param name="Selected rows" updates="None" val="$[int(expInfo['run'])]" valType="str"/>
       <Param name="conditions" updates="None" val="None" valType="str"/>
       <Param name="conditionsFile" updates="None" val="$&quot;conditions/groups/&quot;+str(expInfo['participant'])+&quot;.xlsx&quot;" valType="file"/>
       <Param name="endPoints" updates="None" val="[0, 1]" valType="num"/>
