@@ -132,9 +132,9 @@
         <Param name="disabled" updates="None" val="False" valType="bool"/>
         <Param name="durationEstim" updates="None" val="" valType="code"/>
         <Param name="flip" updates="constant" val="None" valType="str"/>
-        <Param name="font" updates="constant" val="Open Sans" valType="str"/>
+        <Param name="font" updates="constant" val="Noto Serif JP" valType="str"/>
         <Param name="languageStyle" updates="None" val="LTR" valType="str"/>
-        <Param name="letterHeight" updates="constant" val="0.04" valType="num"/>
+        <Param name="letterHeight" updates="constant" val="0.05" valType="num"/>
         <Param name="name" updates="None" val="txt_question_for_know_or_not" valType="code"/>
         <Param name="opacity" updates="constant" val="" valType="num"/>
         <Param name="ori" updates="constant" val="0" valType="num"/>
@@ -146,7 +146,7 @@
         <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
         <Param name="stopVal" updates="constant" val="3" valType="code"/>
         <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
-        <Param name="text" updates="constant" val="What scene have you Not seen?" valType="str"/>
+        <Param name="text" updates="constant" val="見たことのないシーンは？" valType="str"/>
         <Param name="units" updates="None" val="from exp settings" valType="str"/>
         <Param name="wrapWidth" updates="constant" val="" valType="num"/>
       </TextComponent>
@@ -280,9 +280,9 @@
         <Param name="disabled" updates="None" val="False" valType="bool"/>
         <Param name="durationEstim" updates="None" val="" valType="code"/>
         <Param name="flip" updates="constant" val="None" valType="str"/>
-        <Param name="font" updates="constant" val="Open Sans" valType="str"/>
+        <Param name="font" updates="constant" val="Noto Serif JP" valType="str"/>
         <Param name="languageStyle" updates="None" val="LTR" valType="str"/>
-        <Param name="letterHeight" updates="constant" val="0.04" valType="num"/>
+        <Param name="letterHeight" updates="constant" val="0.05" valType="num"/>
         <Param name="name" updates="None" val="txt_answer_for_know_or_not" valType="code"/>
         <Param name="opacity" updates="constant" val="" valType="num"/>
         <Param name="ori" updates="constant" val="0" valType="num"/>
@@ -304,7 +304,7 @@
         <Param name="Begin Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Begin JS Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Begin JS Routine" updates="constant" val="" valType="extendedCode"/>
-        <Param name="Begin Routine" updates="constant" val="if (key_question_for_know_or_not.keys == str('None')) or (key_question_for_know_or_not.keys == None):&amp;#10;    txt_answer_for_know_or_not.text = &quot;You did not press the key!&quot;&amp;#10;    txt_answer_for_know_or_not.color = &quot;red&quot;&amp;#10;    image_answer_for_know_or_not.size=(0.6, 0.6)&amp;#10;    image_answer_for_know_or_not.setImage(&quot;media/pic/no_symbol.png&quot;)&amp;#10;    thisExp.addData('show_single_clip_answer', &quot;none&quot;)&amp;#10;    &amp;#10;else:&amp;#10;    image_answer_for_know_or_not.size=(0.86, 0.51)&amp;#10;#    if str(correct_answer) == 'left':&amp;#10;#        image_answer_for_know_or_not.setImage(correct_img_str)&amp;#10;#    elif str(correct_answer) == 'right':&amp;#10;#        image_answer_for_know_or_not.setImage(correct_img_str)&amp;#10;    image_answer_for_know_or_not.setImage(compared_img_str)&amp;#10;&amp;#10;    if (key_question_for_know_or_not.keys == str(correct_answer)):&amp;#10;        key_question_for_know_or_not.corr = 0&amp;#10;        txt_answer_for_know_or_not.text = &quot;Wrong!&quot;&amp;#10;        txt_answer_for_know_or_not.color = &quot;red&quot;&amp;#10;        txt_answer_for_know_or_not.height = 0.08&amp;#10;        thisExp.addData('show_single_clip_answer', &quot;wrong&quot;)&amp;#10;    else:&amp;#10;        key_question_for_know_or_not.corr = 1&amp;#10;        txt_answer_for_know_or_not.text = &quot;Correct!&quot;&amp;#10;        txt_answer_for_know_or_not.color = &quot;green&quot;&amp;#10;        txt_answer_for_know_or_not.height = 0.08&amp;#10;        thisExp.addData('show_single_clip_answer', &quot;correct&quot;)&amp;#10;" valType="extendedCode"/>
+        <Param name="Begin Routine" updates="constant" val="if (key_question_for_know_or_not.keys == str('None')) or (key_question_for_know_or_not.keys == None):&amp;#10;#    txt_answer_for_know_or_not.text = &quot;You did not press the key!&quot;&amp;#10;    txt_answer_for_know_or_not.text = &quot;キーを押さなかった!&quot;&amp;#10;    txt_answer_for_know_or_not.color = &quot;red&quot;&amp;#10;    image_answer_for_know_or_not.size=(0.6, 0.6)&amp;#10;    image_answer_for_know_or_not.setImage(&quot;media/pic/no_symbol.png&quot;)&amp;#10;    thisExp.addData('show_single_clip_answer', &quot;none&quot;)&amp;#10;    &amp;#10;else:&amp;#10;    image_answer_for_know_or_not.size=(0.86, 0.51)&amp;#10;#    if str(correct_answer) == 'left':&amp;#10;#        image_answer_for_know_or_not.setImage(correct_img_str)&amp;#10;#    elif str(correct_answer) == 'right':&amp;#10;#        image_answer_for_know_or_not.setImage(correct_img_str)&amp;#10;    image_answer_for_know_or_not.setImage(compared_img_str)&amp;#10;&amp;#10;    if (key_question_for_know_or_not.keys == str(correct_answer)):&amp;#10;        key_question_for_know_or_not.corr = 0&amp;#10;#        txt_answer_for_know_or_not.text = &quot;Wrong!&quot;&amp;#10;        txt_answer_for_know_or_not.text = &quot;間違い!&quot;&amp;#10;        txt_answer_for_know_or_not.color = &quot;red&quot;&amp;#10;        txt_answer_for_know_or_not.height = 0.08&amp;#10;        thisExp.addData('show_single_clip_answer', &quot;wrong&quot;)&amp;#10;    else:&amp;#10;        key_question_for_know_or_not.corr = 1&amp;#10;#        txt_answer_for_know_or_not.text = &quot;Correct!&quot;&amp;#10;        txt_answer_for_know_or_not.text = &quot;正しい!&quot;&amp;#10;        txt_answer_for_know_or_not.color = &quot;green&quot;&amp;#10;        txt_answer_for_know_or_not.height = 0.08&amp;#10;        thisExp.addData('show_single_clip_answer', &quot;correct&quot;)&amp;#10;" valType="extendedCode"/>
         <Param name="Code Type" updates="None" val="Py" valType="str"/>
         <Param name="Each Frame" updates="constant" val="" valType="extendedCode"/>
         <Param name="Each JS Frame" updates="constant" val="" valType="extendedCode"/>
@@ -324,7 +324,7 @@
         <Param name="disabled" updates="None" val="False" valType="bool"/>
         <Param name="durationEstim" updates="None" val="" valType="code"/>
         <Param name="flip" updates="constant" val="None" valType="str"/>
-        <Param name="font" updates="constant" val="Open Sans" valType="str"/>
+        <Param name="font" updates="constant" val="Noto Serif JP" valType="str"/>
         <Param name="languageStyle" updates="None" val="LTR" valType="str"/>
         <Param name="letterHeight" updates="constant" val="0.05" valType="num"/>
         <Param name="name" updates="None" val="wait_for_start_txt" valType="code"/>
@@ -338,7 +338,7 @@
         <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
         <Param name="stopVal" updates="constant" val="" valType="code"/>
         <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
-        <Param name="text" updates="constant" val="The experimental demo is about to begin..." valType="str"/>
+        <Param name="text" updates="constant" val="実験デモがもうすぐ始まります..." valType="str"/>
         <Param name="units" updates="None" val="from exp settings" valType="str"/>
         <Param name="wrapWidth" updates="constant" val="" valType="num"/>
       </TextComponent>

@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2021.2.3),
-    on Fri Oct 15 17:59:15 2021
+    on Sun Oct 17 10:05:26 2021
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -96,8 +96,8 @@ current_instruction = 5
 # Initialize components for Routine "wait_for_start"
 wait_for_startClock = core.Clock()
 wait_for_start_txt = visual.TextStim(win=win, name='wait_for_start_txt',
-    text=None,
-    font='Open Sans',
+    text='The experimental demo is about to begin...',
+    font='Noto Serif JP',
     pos=(0, 0), height=0.05, wrapWidth=None, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
@@ -145,7 +145,7 @@ right_image_question_for_know_or_not = visual.ImageStim(
     texRes=128.0, interpolate=True, depth=-1.0)
 key_question_for_know_or_not = keyboard.Keyboard()
 txt_question_for_know_or_not = visual.TextStim(win=win, name='txt_question_for_know_or_not',
-    text='見たことのないシーンは?',
+    text='What scene have you Not seen?',
     font='Open Sans',
     pos=(0, 0.4), height=0.04, wrapWidth=None, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
@@ -367,7 +367,6 @@ wait_for_start_key.keys = []
 wait_for_start_key.rt = []
 _wait_for_start_key_allKeys = []
 thisExp.addData('wait_for_start_begin_routine', core.monotonicClock.getTime())
-wait_for_start_txt.text = u'実験デモがもうすぐ始まります…'
 
 
 # keep track of which components have finished
@@ -1026,13 +1025,13 @@ for thisLoop_video in loop_videos:
             
                 if (key_question_for_know_or_not.keys == str(correct_answer)):
                     key_question_for_know_or_not.corr = 0
-                    txt_answer_for_know_or_not.text = "間違い!"
+                    txt_answer_for_know_or_not.text = "Wrong!"
                     txt_answer_for_know_or_not.color = "red"
                     txt_answer_for_know_or_not.height = 0.08
                     thisExp.addData('show_single_clip_answer', "wrong")
                 else:
                     key_question_for_know_or_not.corr = 1
-                    txt_answer_for_know_or_not.text = "正しい!"
+                    txt_answer_for_know_or_not.text = "Correct!"
                     txt_answer_for_know_or_not.color = "green"
                     txt_answer_for_know_or_not.height = 0.08
                     thisExp.addData('show_single_clip_answer', "correct")

@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2021.2.3),
-    on Fri Oct 15 18:29:24 2021
+    on Sun Oct 17 10:42:02 2021
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -96,8 +96,8 @@ current_instruction = 5
 # Initialize components for Routine "wait_for_start"
 wait_for_startClock = core.Clock()
 wait_for_start_txt = visual.TextStim(win=win, name='wait_for_start_txt',
-    text='The experimental demo is about to begin...',
-    font='Open Sans',
+    text='実験デモがもうすぐ始まります...',
+    font='Noto Serif JP',
     pos=(0, 0), height=0.05, wrapWidth=None, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
@@ -145,9 +145,9 @@ right_image_question_for_know_or_not = visual.ImageStim(
     texRes=128.0, interpolate=True, depth=-1.0)
 key_question_for_know_or_not = keyboard.Keyboard()
 txt_question_for_know_or_not = visual.TextStim(win=win, name='txt_question_for_know_or_not',
-    text='What scene have you Not seen?',
-    font='Open Sans',
-    pos=(0, 0.4), height=0.04, wrapWidth=None, ori=0.0, 
+    text='見たことのないシーンは？',
+    font='Noto Serif JP',
+    pos=(0, 0.4), height=0.05, wrapWidth=None, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=-3.0);
@@ -188,8 +188,8 @@ image_answer_for_know_or_not = visual.ImageStim(
     texRes=128.0, interpolate=True, depth=0.0)
 txt_answer_for_know_or_not = visual.TextStim(win=win, name='txt_answer_for_know_or_not',
     text=None,
-    font='Open Sans',
-    pos=(0, 0.4), height=0.04, wrapWidth=None, ori=0.0, 
+    font='Noto Serif JP',
+    pos=(0, 0.4), height=0.05, wrapWidth=None, ori=0.0, 
     color='red', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=-1.0);
@@ -1009,7 +1009,8 @@ for thisLoop_video in loop_videos:
             routineTimer.add(1.500000)
             # update component parameters for each repeat
             if (key_question_for_know_or_not.keys == str('None')) or (key_question_for_know_or_not.keys == None):
-                txt_answer_for_know_or_not.text = "You did not press the key!"
+            #    txt_answer_for_know_or_not.text = "You did not press the key!"
+                txt_answer_for_know_or_not.text = "キーを押さなかった!"
                 txt_answer_for_know_or_not.color = "red"
                 image_answer_for_know_or_not.size=(0.6, 0.6)
                 image_answer_for_know_or_not.setImage("media/pic/no_symbol.png")
@@ -1025,13 +1026,15 @@ for thisLoop_video in loop_videos:
             
                 if (key_question_for_know_or_not.keys == str(correct_answer)):
                     key_question_for_know_or_not.corr = 0
-                    txt_answer_for_know_or_not.text = "Wrong!"
+            #        txt_answer_for_know_or_not.text = "Wrong!"
+                    txt_answer_for_know_or_not.text = "間違い!"
                     txt_answer_for_know_or_not.color = "red"
                     txt_answer_for_know_or_not.height = 0.08
                     thisExp.addData('show_single_clip_answer', "wrong")
                 else:
                     key_question_for_know_or_not.corr = 1
-                    txt_answer_for_know_or_not.text = "Correct!"
+            #        txt_answer_for_know_or_not.text = "Correct!"
+                    txt_answer_for_know_or_not.text = "正しい!"
                     txt_answer_for_know_or_not.color = "green"
                     txt_answer_for_know_or_not.height = 0.08
                     thisExp.addData('show_single_clip_answer', "correct")
