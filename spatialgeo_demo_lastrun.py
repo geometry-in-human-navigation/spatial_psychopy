@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2021.2.3),
-    on Fri Oct 15 17:44:40 2021
+    on Sun Oct 17 10:58:18 2021
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -551,7 +551,7 @@ for thisLoop_video in loop_videos:
     # set up handler to look after randomisation of conditions etc
     loop_clips = data.TrialHandler(nReps=1.0, method='sequential', 
         extraInfo=expInfo, originPath=-1,
-        trialList=data.importConditions('conditions/show_clips_conditions.xlsx'),
+        trialList=data.importConditions('conditions/show_clips_demo_conditions.xlsx'),
         seed=None, name='loop_clips')
     thisExp.addLoop(loop_clips)  # add the loop to the experiment
     thisLoop_clip = loop_clips.trialList[0]  # so we can initialise stimuli with some values

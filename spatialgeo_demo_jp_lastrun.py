@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2021.2.3),
-    on Sun Oct 17 10:42:02 2021
+    on Sun Oct 17 11:00:41 2021
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -48,7 +48,7 @@ filename = _thisDir + os.sep + u'data/%s_%s_%s' % (expInfo['participant'], expNa
 # An ExperimentHandler isn't essential but helps with data saving
 thisExp = data.ExperimentHandler(name=expName, version='',
     extraInfo=expInfo, runtimeInfo=None,
-    originPath='/Volumes/StateSpace/research_backup/Postdoc_Times/UTokyoPostdoc/CompNeuro/3 Projects/spatialnavigation/decisionmaking/neuroimage/psychopy/spatialgeometry/spatialgeo_jp_lastrun.py',
+    originPath='/Volumes/StateSpace/research_backup/Postdoc_Times/UTokyoPostdoc/CompNeuro/3 Projects/spatialnavigation/decisionmaking/neuroimage/psychopy/spatialgeometry/spatialgeo_demo_jp_lastrun.py',
     savePickle=True, saveWideText=True,
     dataFileName=filename)
 # save a log file for detail verbose info
@@ -552,7 +552,7 @@ for thisLoop_video in loop_videos:
     # set up handler to look after randomisation of conditions etc
     loop_clips = data.TrialHandler(nReps=1.0, method='sequential', 
         extraInfo=expInfo, originPath=-1,
-        trialList=data.importConditions('conditions/show_clips_conditions.xlsx'),
+        trialList=data.importConditions('conditions/show_clips_demo_conditions.xlsx'),
         seed=None, name='loop_clips')
     thisExp.addLoop(loop_clips)  # add the loop to the experiment
     thisLoop_clip = loop_clips.trialList[0]  # so we can initialise stimuli with some values

@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2021.2.3),
-    on Fri Oct 15 17:35:05 2021
+    on Sun Oct 17 11:02:27 2021
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -366,6 +366,8 @@ continueRoutine = True
 wait_for_start_key.keys = []
 wait_for_start_key.rt = []
 _wait_for_start_key_allKeys = []
+thisExp.addData('wait_for_start_begin_routine', core.monotonicClock.getTime())
+
 # keep track of which components have finished
 wait_for_startComponents = [wait_for_start_txt, wait_for_start_key]
 for thisComponent in wait_for_startComponents:
@@ -549,7 +551,7 @@ for thisLoop_video in loop_videos:
     # set up handler to look after randomisation of conditions etc
     loop_clips = data.TrialHandler(nReps=1.0, method='sequential', 
         extraInfo=expInfo, originPath=-1,
-        trialList=data.importConditions('conditions/show_clips_conditions.xlsx'),
+        trialList=data.importConditions('conditions/show_clips_run_conditions.xlsx'),
         seed=None, name='loop_clips')
     thisExp.addLoop(loop_clips)  # add the loop to the experiment
     thisLoop_clip = loop_clips.trialList[0]  # so we can initialise stimuli with some values

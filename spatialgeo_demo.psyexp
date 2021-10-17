@@ -695,8 +695,8 @@
     </LoopInitiator>
     <LoopInitiator loopType="TrialHandler" name="loop_clips">
       <Param name="Selected rows" updates="None" val="" valType="str"/>
-      <Param name="conditions" updates="None" val="[{'video_name': 'clip0', 'video_duration': 24}, {'video_name': 'clip1', 'video_duration': 18}, {'video_name': 'clip2', 'video_duration': 18}]" valType="str"/>
-      <Param name="conditionsFile" updates="None" val="conditions/show_clips_conditions.xlsx" valType="file"/>
+      <Param name="conditions" updates="None" val="[{'video_name': 'clip0', 'video_duration': 12}, {'video_name': 'clip1', 'video_duration': 12}, {'video_name': 'clip2', 'video_duration': 12}]" valType="str"/>
+      <Param name="conditionsFile" updates="None" val="conditions/show_clips_demo_conditions.xlsx" valType="file"/>
       <Param name="endPoints" updates="None" val="[0, 1]" valType="num"/>
       <Param name="isTrials" updates="None" val="True" valType="bool"/>
       <Param name="loopType" updates="None" val="sequential" valType="str"/>
