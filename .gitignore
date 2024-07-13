@@ -3,3 +3,4 @@ data/
 ._*
 media/videos
 media/question_images
+.DS_Store

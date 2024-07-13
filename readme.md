@@ -1,4 +1,5 @@
 # Spatial fMRI experiments
+[Psychopy (2021.2.3)](https://github.com/psychopy/psychopy) is used to design and run the fMRI experiment.
 
 ## Keyboard
 1. 't', or 'space' to start the experiment;
